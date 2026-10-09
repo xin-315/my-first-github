@@ -1,0 +1,41 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment Variables & Secrets (CRITICAL for Academic Integrity)
+.env
+*.local.env
+
+# IDE & Editor Specific
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+
+# OS / Scratch / Temporary Files
+*.tmp
+*.log
+.system_generated/
+scratch/
+
+# Node / Frontend Caches (if any)
+node_modules/
+npm-debug.log*
+
+# Scratch & scraped files
+scraped_*
+.agents/
+
+# Course slides in root directory (keep repo clean and lightweight)
+/*.pdf
+!/reports/*.pdf
+
