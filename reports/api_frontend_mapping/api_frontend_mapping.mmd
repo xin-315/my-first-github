@@ -1,0 +1,35 @@
+flowchart LR
+    subgraph Browser["浏览器（必须同源）"]
+        UI["app.js 单页应用<br/>practice / tutor<br/>graph / evidence"]
+        LS[("localStorage<br/>studygraph_attempts_v1")]
+    end
+
+    subgraph Service["server.py · 127.0.0.1:8000"]
+        H["GET /api/health"]
+        Q["GET /api/questions"]
+        D["GET /api/datasets"]
+        A["POST /api/answer"]
+        T["POST /api/tutor"]
+        S["静态文件服务<br/>index.html · app.js<br/>style.css · vendor/*"]
+    end
+
+    Store[("data/curated/questions.json<br/>6 items")]
+    Meta[("data/datasets.json<br/>5 records")]
+    Model["可选外部模型<br/>{MODEL_API_URL}<br/>/chat/completions"]
+
+    UI -->|"1 GET（启动）"| H
+    UI -->|"2 GET（启动）"| Q
+    UI -->|"3 GET（启动）"| D
+    UI -->|"4 POST 点击选项"| A
+    UI -->|"5 POST 查看解析"| A
+    UI -->|"6 POST 助教追问"| T
+    UI -.->|"页面与静态资源"| S
+
+    Q --> Store
+    D --> Meta
+    A --> Store
+    T --> Store
+    T -.->|"失败即降级 local"| Model
+
+    A -.->|"前端写入作答记录"| LS
+    LS -.->|"前端派生雷达与统计<br/>（无端点）"| UI
