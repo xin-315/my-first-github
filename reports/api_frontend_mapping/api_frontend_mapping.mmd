@@ -1,0 +1,35 @@
+flowchart LR
+    subgraph Browser["Browser Client (Same-Origin Mandatory)"]
+        UI["app.js Single Page App<br/>practice / tutor<br/>graph / evidence"]
+        LS[("localStorage<br/>studygraph_attempts_v1")]
+    end
+
+    subgraph Service["Python Service (server.py · 127.0.0.1:8000)"]
+        H["GET /api/health"]
+        Q["GET /api/questions"]
+        D["GET /api/datasets"]
+        A["POST /api/answer"]
+        T["POST /api/tutor"]
+        S["Static File Server<br/>index.html · app.js<br/>style.css · vendor/*"]
+    end
+
+    Store[("data/curated/questions.json<br/>6 curated items")]
+    Meta[("data/datasets.json<br/>5 records")]
+    Model["Optional External LLM<br/>{MODEL_API_URL}<br/>/chat/completions"]
+
+    UI -->|"1 GET (Startup)"| H
+    UI -->|"2 GET (Startup)"| Q
+    UI -->|"3 GET (Startup)"| D
+    UI -->|"4 POST (Submit Choice)"| A
+    UI -->|"5 POST (Reveal Explanation)"| A
+    UI -->|"6 POST (Socratic Query)"| T
+    UI -.->|"Static Web Assets"| S
+
+    Q --> Store
+    D --> Meta
+    A --> Store
+    T --> Store
+    T -.->|"Fallback to local on failure"| Model
+
+    A -.->|"Persist Attempt Log"| LS
+    LS -.->|"Client-derived Radar & Metrics<br/>(No Endpoint)"| UI

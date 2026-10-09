@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>导出件保真检查</title>
+<style>
+  html,body{margin:0;padding:16px;background:#fff;font-family:"Segoe UI","Microsoft YaHei",sans-serif}
+  h2{font-size:14px;margin:0 0 6px}
+  p{font-size:12px;color:#6b7280;margin:0 0 10px}
+  .row{margin-bottom:26px}
+  img{display:block;border:1px solid #e5e7eb;max-width:100%}
+</style></head><body>
+<div class="row">
+  <h2>1. api_frontend_mapping.svg（矢量，插入报告请优先用这个）</h2>
+  <p>检查要点：文字应为可选中的原生文本；若显示为空白框或掉字，说明渲染时未设 htmlLabels:false。</p>
+  <img src="api_frontend_mapping.svg" alt="api_frontend_mapping.svg">
+</div>
+<div class="row">
+  <h2>2. api_frontend_mapping.png（2248×2502，2×）</h2>
+  <p>与上方 SVG 内容应完全一致；用于不放矢量图的场合（如聊天工具、幻灯片）。</p>
+  <img src="api_frontend_mapping.png" alt="api_frontend_mapping.png">
+</div>
+</body></html>
