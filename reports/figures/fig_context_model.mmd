@@ -1,0 +1,35 @@
+%%{init: {"flowchart": {"curve": "basis", "nodeSpacing": 50, "rankSpacing": 85, "padding": 16}}}%%
+%% 图 1：系统顶层上下文模型 (System Context Model)
+%% JC2001 Group 5 / 智学罗盘 Smart Study Assistant
+%% 说明：
+%%   1. 采用「外部参与者 → 系统边界 → 外部依赖」的纵向分层布局。
+%%   2. 实线双向箭头 = 同步请求/响应；虚线单向箭头 = 单向依赖调用。
+%%   3. 数据存储使用 UML 数据存储符号（圆柱），外部 API 使用文档符号。
+%%   4. Neo4j 与通义千问以虚线框表示为可选/规划中依赖；本地策展内容库与本地
+%%      助教回复是其降级路径（见 NFR-02 离线可靠性）。
+flowchart TB
+    Student(["在校大学生 (Student)<br/>「Web 浏览器客户端」"])
+
+    subgraph Boundary["智学罗盘系统边界 (Smart Study Assistant)"]
+        direction LR
+        Frontend["SPA 前端控制台<br/><i>HTML5 / CSS3 / Vanilla JS</i><br/><i>frontend/index.html + app.js</i>"]
+        Backend["FastAPI 业务服务中枢<br/><i>Python 3.10+ / 模块化分层架构</i><br/><i>backend/app/main.py</i>"]
+        Store[("策展题库与先修知识库<br/><i>backend/app/data/seed_questions.py</i><br/><i>答案与错因映射服务端闭环</i>")]
+    end
+
+    DB[("Neo4j AuraDB 云数据库<br/><i>考点 / 错因拓扑图谱</i>")]
+    LLM["阿里云通义千问 API (Qwen-Turbo)<br/><i>LLM 诊断与苏格拉底对话</i>"]
+
+    Student <-->|"HTTPS / JSON<br/>人机操作交互"| Frontend
+    Frontend <-->|"RESTful API /api/*<br/>GET + POST JSON"| Backend
+    Backend <-->|"读取题目与错因映射"| Store
+    Backend -.->|"Cypher 查询<br/>[规划中 · 适配器接口]"| DB
+    Backend -.->|"OpenAI 兼容调用<br/>[可选 · 环境变量注入]"| LLM
+
+    style Student fill:#fff7ed,stroke:#c2410c,stroke-width:2px,color:#7c2d12
+    style Frontend fill:#e8f0fe,stroke:#1a56db,stroke-width:2px
+    style Backend fill:#e8f0fe,stroke:#1a56db,stroke-width:2px
+    style Store fill:#ecfdf5,stroke:#047857,stroke-width:2px
+    style DB fill:#f3f4f6,stroke:#4b5563,stroke-width:2px,stroke-dasharray:4 3
+    style LLM fill:#fff1f2,stroke:#be123c,stroke-width:2px,stroke-dasharray:4 3
+    style Boundary fill:#f8fafc,stroke:#334155,stroke-width:2px
