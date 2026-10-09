@@ -1,0 +1,48 @@
+%%{init: {"sequence": {"useMaxWidth": false, "actorMargin": 38, "boxMargin": 9, "messageMargin": 30, "mirrorActors": true, "wrap": false, "width": 118, "height": 42, "noteFontSize": 12, "messageFontSize": 12, "actorFontSize": 13}}}%%
+%% 图 3：核心业务时序图 —— 错题排雷全流程 (Sequence Diagram: Diagnose)
+%% JC2001 Group 5 / 智学罗盘 Smart Study Assistant
+%% 说明：
+%%   1. 参与者与核心契约对齐当前 FastAPI 模块化服务架构：POST /api/diagnose
+%%      （接收 question_id 与 selected_option）；可选规划扩展 POST /api/tutor。
+%%   2. 图中 alt 分支即 NFR-02「离线可靠性」：外部图谱与外部模型均为可选，
+%%      任一不可用时核心流程仍以本地策展内容返回结果。
+%%   3. 标签 [已实现] = 已在 backend/app 与 frontend/app.js 落地并通过测试；
+%%      [规划中] = 设计目标，尚未接入真实外部服务；[可选] = 由环境变量注入。
+sequenceDiagram
+    autonumber
+    actor User as 在校大学生
+    participant UI as 前端控制台 (app.js)
+    participant API as 业务中枢 (backend/app)
+    participant Store as 题库与知识库 (seed_questions.py)
+    participant Graph as Neo4j 图谱 (云端)
+    participant Qwen as 通义千问 Qwen-Turbo
+
+    User->>UI: 点击题目干扰项（如选项 B）
+    UI->>API: POST /api/diagnose {question_id, selected_option}
+    API->>Store: 读取题干、标准答案与陷阱映射 [已实现]
+    Store-->>API: trap_id, misconception, prerequisite
+    Note over API,Store: 答案与错因映射不下发客户端公共题目接口
+    API->>API: evaluate_answer 判定 is_correct=false
+    alt 外部图谱可用 [规划中]
+        API->>Graph: MATCH (q:Question)-[:PRONE_TO]->(t:Trap)
+        Graph-->>API: 考点名称、前驱概念与诱因标签
+    else 图谱未命中或超时 [降级]
+        API->>API: 降级为本地策展错因拓扑与先修知识
+    end
+    API-->>UI: 200 OK (DiagnoseResponse: {is_correct, trap, socratic_hint, prerequisite, radar_updates})
+    UI->>UI: 展开右侧诊断抽屉并高亮对应选项
+    UI-->>User: 展示苏格拉底启发指引、前置概念与避坑建议
+    opt 学生继续多轮追问 [规划中 · 导师追问扩展]
+        User->>UI: 在对话抽屉输入追问
+        UI->>API: POST /api/tutor {question_id, message}
+        alt 已配置外部模型 [可选]
+            API->>Qwen: 兼容协议请求 /chat/completions
+            Qwen-->>API: 返回深度启发式追问回复
+        else 未配置模型或调用超时 [本地降级]
+            API->>API: local_tutor_reply 由已审核证据链生成
+        end
+        API-->>UI: 200 OK {reply, mode}
+        UI-->>User: 展示带来源标注的导师回复
+    end
+    UI->>UI: 追加作答记录至 localStorage
+    UI-->>User: 刷新学情掌握度雷达与维度过关状态
