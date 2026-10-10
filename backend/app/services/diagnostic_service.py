@@ -12,6 +12,7 @@ from backend.app.config import settings
 from backend.app.models.quiz import QuizItem, TrapDetail, OptionItem
 from backend.app.models.diagnose import DiagnoseRequest, DiagnoseResponse
 from backend.app.services.quiz_service import quiz_service
+from backend.app.services.llm_diagnostics import classify_llm_failure
 
 logger = logging.getLogger("diagnostic_engine")
 
@@ -82,7 +83,14 @@ class DiagnosticService:
                 elif "text" in output:
                     return output.get("text", "").strip()
             else:
-                logger.warning(f"DashScope API returned HTTP {resp.status_code}: {resp.text}")
+                failure = classify_llm_failure(resp.status_code, resp.text)
+                logger.warning(
+                    "DashScope call rejected (%s, HTTP %s, retryable=%s): %s",
+                    failure.kind,
+                    resp.status_code,
+                    failure.retryable,
+                    failure.message,
+                )
         return None
 
     async def diagnose_answer(self, req: DiagnoseRequest) -> DiagnoseResponse:
