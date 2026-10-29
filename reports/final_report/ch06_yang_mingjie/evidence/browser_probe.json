@@ -1,0 +1,36 @@
+{
+  "origin": "http://127.0.0.1:8765",
+  "sourceCommit": "ae7ab47c6ff77b17f0ca62836b2c01e36da57187",
+  "externalModelRequestsSent": 0,
+  "offlineErrors": [
+    "echarts is not defined"
+  ],
+  "offlineOptionCount": 0,
+  "functionalErrors": [],
+  "functionalResourceMode": "Project ECharts CDN URL fulfilled from the exact downloaded ECharts 5.5.1 asset; every other non-loopback request blocked. This cache is a QA fixture, not a repository asset.",
+  "subjectCounts": {
+    "law": 4,
+    "econ": 4,
+    "cs": 4,
+    "se": 4
+  },
+  "answerResponseStatus": 200,
+  "drawerVisible": true,
+  "radarCanvasCount": 2,
+  "languageAfterToggle": "en",
+  "themeAfterToggle": "light",
+  "viewportOverflow": {
+    "scroll": 1440,
+    "viewport": 1440
+  },
+  "paints": [
+    {
+      "name": "first-paint",
+      "milliseconds": 296
+    },
+    {
+      "name": "first-contentful-paint",
+      "milliseconds": 392
+    }
+  ]
+}

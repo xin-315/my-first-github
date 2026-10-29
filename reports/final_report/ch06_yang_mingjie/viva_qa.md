@@ -1,18 +1,25 @@
-# Oral Defense (Viva) Q&A — Chapter 6 (Yang Mingjie, `50106061`)
+# Five minute explanation and viva preparation
 
-## Q1: "You report 147 passing tests (`145 + 2`), yet your test files only contain 80 `def test_*` functions (`78 + 2`). Why do those numbers differ, and what does 100% pass rate actually prove when you wrote the tests yourselves?"
+## Suggested Chinese explanation
 
-**Answer:**
-First, on the numerical relationship (`Section 6.1.2`, `Table 6.1`): our 9 test files contain **80 test functions** (78 in the frozen Cycle 3 baseline plus 2 `CamelModel` dual-key regression functions added on 25 October 2026). Using `@pytest.mark.parametrize`, those 80 functions expand across all 12 questions, 36 distractor traps, 4 category filters, and multiple adversarial attack vectors into **147 collected test cases** ($\sum_{i=1}^{80} k_i = 147$).
-Second, a 100% pass rate on author-written happy-path tests alone would only prove a regression baseline exists. What gives our suite genuine defect-detection power is `tests/test_adversarial_backend.py` (**25 functions across 523 lines**, grouped into `A1`–`A6` in `Table 6.2`), where we actively attacked our own API with SQL/XSS payloads, type confusion, 10k-character overflows, and 50-thread bursts. Several of those adversarial tests caught real defects during Cycle 2—such as lowercase option `"a"` returning `404` instead of `422`, and a `ZeroDivisionError` on `/api/reports/summary` when `total_attempts == 0`. Furthermore, `Table 6.5` maps every test back to the 14 requirements in Chapter 2 to prove **requirement coverage**, not just raw test count.
+第一分钟：我负责第六章测试与评估、附录 C 和用户手册。本次以仓库已存在的 Cycle 3 分支 ae7ab47 为主，同时核对 master。两个版本不同，不能混用测试数字。
 
-## Q2: "In Section 6.3 (`Table 6.3`, `Figure 6.2`), your GraphRAG pipeline shows negative accuracy deltas on High School Physics (`-1.32 pp`) and High School US History (`-1.00 pp`). Does this mean your knowledge-graph approach failed?"
+第二分钟：我运行了已有测试，没有改应用和原测试来凑通过率。Cycle 3 是 10 个文件、99 个函数，参数化后是 183 个用例。pytest 记录是 183 passed，17 warnings，1.83 秒。通过的意义是这组回归断言成立，不等于全部需求满足。
 
-**Answer:**
-No—it proves that knowledge-graph augmentation is **conditionally effective**, and identifying its exact failure boundary is one of our report's central empirical findings. Across 12 MMLU subjects ($n = 4,445$), we achieved **7 wins, 3 ties, and 2 losses**. Our largest gains occurred in rule-dense domains with strict statutory or algorithmic boundaries: **`Professional Law` (`+2.50 pp`)**, **`HS Computer Science` (`+2.00 pp`)**, and **`Econometrics` (`+1.75 pp`)**, where 1-hop prerequisite triples prevent boundary confusion. Conversely, `High School Physics` (`-1.32 pp`) requires multi-step numerical derivation and unit conversion; injecting declarative concept triples into the prompt acted as **neighbour retrieval noise** that distracted the LLM's calculation path. Similarly, `HS US History` (`-1.00 pp`) relies on chronological narrative nuances that are flattened by simple entity triples. Reporting these two negative bars transparently—and using them to justify our offline pre-verified runtime architecture (`AD-1`)—is far more scientifically rigorous than cherry-picking only winning subjects.
+第三分钟：我另外用真实浏览器和请求核验验收标准。发现离线首次打开缺 ECharts，登录不检查密码，学情接口还是固定值。因此我在需求表中写部分满足或未满足，并附上请求结果和截图。
 
-## Q3: "In Section 6.4 (`Table 6.4`) and Section 6.5 (`Table 6.5`), why is the full RAGAS score table incomplete and why is Requirement `R10` marked only 'Partially Met'?"
+第四分钟：MMLU 结果来自仓库已有 CSV，不是我新跑的实验。12 个学科有 7 个正提升、3 个持平、2 个负提升，学科平均差为正 0.60 个百分点。没有逐题数据和重复实验，所以不能说统计显著，法学和物理的解释也只是待验证假设。
 
-**Answer:**
-Both disclosures reflect strict academic integrity (`NFR-10`). For **RAGAS (`Section 6.4`)**, we implemented the evaluation script (`graphrag（终）/ragas_evaluator.py`) with exponential backoff and CSV checkpointing across `glm-4-flash`, `glm-4-air`, and `glm-4-plus`, and verified zero hallucination (`L1=0`, `L2=0`) on our 36 curated traps via `audit_hallucination_l1_l3.py`. However, running full 4-metric LLM-judge embeddings across all 4,445 MMLU items exceeded our commercial API token quota before code freeze; rather than fabricating RAGAS decimals, we reported the verified script design and quota boundary.
-For **Requirement `R10` (`Table 6.5`)**, we marked it **Partially Met (`⚠️`)** because while our GraphRAG pipeline was fully executed on the **offline evaluation path (`Section 6.3`)**, we deliberately did not wire a live cloud Neo4j daemon into the **runtime demo path (`POST /api/diagnose`)**. Doing so would have broken `R09` (100% offline zero-config grading reproducibility for examiners) and introduced $2\text{–}4\text{ s}$ latency plus the physics neighbour-noise risk.
+第五分钟：名为 ragas_evaluator 的脚本实际比较答题准确率，没有算四个 RAGAS 指标，我没有编分数。第六章按我的任务包指定的原需求编排，R10 是 GraphRAG 且只部分满足。最新第 2 章的另一套定义单独保留对照，不能混用编号。
+
+## Questions to prepare
+
+1. 183 个测试全过，为什么还有未满足需求？测试只证明已有断言成立，部分断言允许 200 兜底；独立验收发现了更严格要求与实现的差别。
+2. 为什么不是任务包写的 145？145 是旧任务口径；最新分支收集到了 183，我同时交原始日志、JUnit 和完整用例清单，不能为了数字好看改测试。
+3. 图谱是否一定提升？不能这样说。已有汇总中有两项下降，且缺少逐题数据和重复采样。
+4. RAGAS 分数是多少？当前没有可核验分数，而且脚本没有实现这些指标，报告明确写未计算。
+5. 能否离线演示？API 测试可以，浏览器首次加载会受外部图表资源影响，完整离线验收未通过。
+6. 学情卡是真实学生记录吗？当前后端是预设示例值，不应解释为真实学习效果。
+7. 下一步怎么改？先统一需求和提交版本，再由对应开发负责人处理离线资源、账号行为、学情状态，之后重跑相应验收。
+
+本人需要读懂并能复述每个结论，按课程要求确认贡献及 AI 工具使用披露。本文没有替任何成员签名，也没有伪造用户访谈或答辩经历。

@@ -1,0 +1,370 @@
+{
+  "TABLE_6_1": {
+    "caption": "Table 6.1 Existing test inventory",
+    "header": [
+      "Module stem",
+      "Funcs",
+      "Cases",
+      "Coverage target"
+    ],
+    "rows": [
+      [
+        "adversarial_backend",
+        "25",
+        "38",
+        "R02 R03; NFR-R2"
+      ],
+      [
+        "auth",
+        "10",
+        "10",
+        "R06"
+      ],
+      [
+        "cors",
+        "4",
+        "19",
+        "Interface integration"
+      ],
+      [
+        "diagnose",
+        "8",
+        "10",
+        "R02 R03"
+      ],
+      [
+        "e2e_frontend",
+        "6",
+        "6",
+        "R09 static resources"
+      ],
+      [
+        "empirical_stress",
+        "7",
+        "12",
+        "R01 R02 R03"
+      ],
+      [
+        "health",
+        "5",
+        "8",
+        "R09 health probe"
+      ],
+      [
+        "llm_health",
+        "19",
+        "36",
+        "Optional LLM probe"
+      ],
+      [
+        "quiz",
+        "6",
+        "21",
+        "R01"
+      ],
+      [
+        "reports",
+        "9",
+        "23",
+        "R04 R05"
+      ]
+    ],
+    "source": "Source: audit and JUnit; stems omit test_ and .py.",
+    "widths": [
+      0.34,
+      0.13,
+      0.1,
+      0.43
+    ]
+  },
+  "TABLE_6_2": {
+    "caption": "Table 6.2 Six robustness review groups",
+    "header": [
+      "Group",
+      "Existing input or workload",
+      "Observed contract"
+    ],
+    "rows": [
+      [
+        "A1",
+        "Unknown question ID",
+        "200 fallback, not strict 404"
+      ],
+      [
+        "A2",
+        "Z / blank; malformed JSON",
+        "200 options; bad JSON rejected"
+      ],
+      [
+        "A3",
+        "SQL/script/traversal; long text",
+        "No-crash assertions passed"
+      ],
+      [
+        "A4",
+        "List ID or object option",
+        "422 type validation"
+      ],
+      [
+        "A5",
+        "50 diagnose / 50 quiz / 60 mixed",
+        "Bounded workload passed"
+      ],
+      [
+        "A6",
+        "Empty object / unknown subject",
+        "Fallback; empty report"
+      ]
+    ],
+    "source": "Source: existing tests and request probes; groups overlap.",
+    "widths": [
+      0.1,
+      0.44,
+      0.46
+    ]
+  },
+  "TABLE_6_3": {
+    "caption": "Table 6.3 Stored MMLU subject results",
+    "header": [
+      "Subject",
+      "Baseline",
+      "Ours",
+      "Change pp"
+    ],
+    "rows": [
+      [
+        "Professional Law",
+        "0.6100",
+        "0.6350",
+        "+2.50"
+      ],
+      [
+        "HS Computer Science",
+        "0.8600",
+        "0.8800",
+        "+2.00"
+      ],
+      [
+        "Public Relations",
+        "0.7273",
+        "0.7455",
+        "+1.82"
+      ],
+      [
+        "Econometrics",
+        "0.6491",
+        "0.6667",
+        "+1.75"
+      ],
+      [
+        "Miscellaneous",
+        "0.8850",
+        "0.8900",
+        "+0.50"
+      ],
+      [
+        "HS Biology",
+        "0.9200",
+        "0.9250",
+        "+0.50"
+      ],
+      [
+        "Professional Psychology",
+        "0.7750",
+        "0.7800",
+        "+0.50"
+      ],
+      [
+        "Electrical Engineering",
+        "0.7931",
+        "0.7931",
+        "+0.00"
+      ],
+      [
+        "Human Aging",
+        "0.7250",
+        "0.7250",
+        "+0.00"
+      ],
+      [
+        "World Religions",
+        "0.8538",
+        "0.8538",
+        "+0.00"
+      ],
+      [
+        "HS Us History",
+        "0.8850",
+        "0.8750",
+        "-1.00"
+      ],
+      [
+        "HS Physics",
+        "0.6026",
+        "0.5894",
+        "-1.32"
+      ]
+    ],
+    "source": "Source: existing final_systematic_report.csv; no new run.",
+    "widths": [
+      0.52,
+      0.16,
+      0.16,
+      0.16
+    ]
+  },
+  "TABLE_6_4": {
+    "caption": "Table 6.4 Requested RAGAS metrics and available evidence",
+    "header": [
+      "Metric",
+      "What it would evaluate",
+      "Verified score"
+    ],
+    "rows": [
+      [
+        "Faithfulness",
+        "Answer support in retrieved context",
+        "Not computed"
+      ],
+      [
+        "Answer relevancy",
+        "Answer relevance to the question",
+        "Not computed"
+      ],
+      [
+        "Context precision",
+        "Relevance of retrieved material",
+        "Not computed"
+      ],
+      [
+        "Context recall",
+        "Coverage of reference information",
+        "Not computed"
+      ]
+    ],
+    "source": "Source: existing ragas_evaluator.py; no RAGAS output.",
+    "widths": [
+      0.27,
+      0.48,
+      0.25
+    ]
+  },
+  "TABLE_6_5A": {
+    "caption": "Table 6.5 Functional requirements achievement",
+    "header": [
+      "ID",
+      "Prio",
+      "Assigned requirement (verbatim)",
+      "Result",
+      "Ref"
+    ],
+    "rows": [
+      [
+        "R01",
+        "Must",
+        "学生可按学科浏览题目",
+        "Met",
+        "T01"
+      ],
+      [
+        "R02",
+        "Must",
+        "学生可提交作答",
+        "Met",
+        "T02"
+      ],
+      [
+        "R03",
+        "Must",
+        "系统提供选项级诊断（非题目级）",
+        "Partial",
+        "T03"
+      ],
+      [
+        "R04",
+        "Must",
+        "五维能力雷达与趋势",
+        "Partial",
+        "T04"
+      ],
+      [
+        "R05",
+        "Must",
+        "学情摘要卡",
+        "Partial",
+        "T05"
+      ],
+      [
+        "R06",
+        "Must",
+        "登录与注册",
+        "Partial",
+        "T06"
+      ],
+      [
+        "R07",
+        "Should",
+        "中英双语界面",
+        "Met",
+        "T07"
+      ],
+      [
+        "R08",
+        "Should",
+        "明/暗双主题",
+        "Partial",
+        "T08"
+      ],
+      [
+        "R09",
+        "Must",
+        "离线零构建运行",
+        "Unmet",
+        "T09"
+      ],
+      [
+        "R10",
+        "Should",
+        "GraphRAG 图谱增强",
+        "Partial",
+        "T10"
+      ],
+      [
+        "R11",
+        "Won't",
+        "多用户/多租户隔离",
+        "Excluded",
+        "T11"
+      ],
+      [
+        "R12",
+        "Won't",
+        "移动原生 App",
+        "Excluded",
+        "T12"
+      ],
+      [
+        "R13",
+        "Won't",
+        "社交功能（排行榜/分享）",
+        "Excluded",
+        "T13"
+      ],
+      [
+        "R14",
+        "Won't",
+        "自动组卷 / 自适应出题",
+        "Excluded",
+        "T14"
+      ]
+    ],
+    "source": "Source: task pack 02, Table 2.2, verbatim labels. T keys: evidence ledger.",
+    "widths": [
+      0.07,
+      0.11,
+      0.55,
+      0.17,
+      0.1
+    ]
+  }
+}

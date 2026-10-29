@@ -1,0 +1,21 @@
+{
+  "prose_words_excluding_tables_references": 2702,
+  "word_count_rule": "Whitespace-separated tokens containing an ASCII letter or digit; numbers and identifiers included. Overall count includes headings; section counts exclude all headings. Tables, image markup, punctuation-only tokens and references excluded. Approximate word-processor count.",
+  "section_prose_words_excluding_headings": {
+    "6.1": 403,
+    "6.2": 501,
+    "6.3": 601,
+    "6.4": 301,
+    "6.5": 504,
+    "6.6": 300
+  },
+  "third_level_headings": 12,
+  "table_groups": 5,
+  "table_parts": 5,
+  "figures": 2,
+  "chapter_main_pages": 8,
+  "chapter_pdf_pages": 9,
+  "manual_pages": 10,
+  "appendix_pages": 2,
+  "verification_summary": "183 passed, 17 warnings in 4.04s"
+}

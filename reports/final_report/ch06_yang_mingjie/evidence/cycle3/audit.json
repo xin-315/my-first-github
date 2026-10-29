@@ -1,0 +1,2608 @@
+{
+  "snapshot": "ae7ab47c6ff77b17f0ca62836b2c01e36da57187",
+  "date": "2026-10-29",
+  "python": "3.12.14",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "command": "python -m pytest tests/ -q -p no:cacheprovider -p network_guard --junitxml=pytest_results.xml",
+  "network_guard": "Outbound sockets rejected during pytest; original test files unchanged",
+  "exit_code": 0,
+  "wall_seconds": 2.643,
+  "pytest_summary": "183 passed, 17 warnings in 1.83s",
+  "packages": {
+    "fastapi": "0.162.0",
+    "starlette": "1.10.0",
+    "pydantic": "2.14.1",
+    "httpx": "0.28.1",
+    "pytest": "9.2.0",
+    "uvicorn": "0.54.0",
+    "python-dotenv": "1.2.4",
+    "requests": "2.34.2"
+  },
+  "inventory": [
+    {
+      "file": "test_adversarial_backend.py",
+      "functions": 25,
+      "names": [
+        "test_diagnose_empty_json_body",
+        "test_diagnose_invalid_json_syntax",
+        "test_diagnose_non_string_types",
+        "test_diagnose_extra_unknown_fields",
+        "test_quiz_boundary_limit_parameters",
+        "test_diagnose_sqli_resilience",
+        "test_quiz_sqli_in_subject",
+        "test_diagnose_xss_resilience",
+        "test_path_traversal_resilience",
+        "test_extreme_string_length_fuzzing",
+        "test_quiz_unknown_subject_returns_empty_list",
+        "test_quiz_empty_and_whitespace_subject",
+        "test_diagnose_unknown_question_id_fallback",
+        "test_diagnose_invalid_option_keys",
+        "test_diagnose_unicode_and_emojis",
+        "test_diagnose_offline_mode_active",
+        "test_diagnose_simulated_dashscope_timeout",
+        "test_diagnose_simulated_dashscope_connection_failure",
+        "test_diagnose_simulated_dashscope_upstream_500_response",
+        "test_diagnose_simulated_internal_catastrophic_exception",
+        "test_rapid_concurrent_diagnose_calls",
+        "test_rapid_concurrent_quiz_calls",
+        "test_mixed_rapid_concurrent_load",
+        "test_unsupported_http_methods",
+        "test_unmapped_api_route_returns_404"
+      ],
+      "cases": 38,
+      "passed": 38
+    },
+    {
+      "file": "test_auth.py",
+      "functions": 10,
+      "names": [
+        "test_get_demo_users",
+        "test_login_known_student_by_id",
+        "test_login_known_student_by_name",
+        "test_login_guest_student",
+        "test_login_new_student_dynamic_provisioning",
+        "test_register_new_student",
+        "test_login_empty_id_fallback",
+        "test_login_missing_field_422",
+        "test_login_accepts_camel_case_alias",
+        "test_register_accepts_camel_case_alias"
+      ],
+      "cases": 10,
+      "passed": 10
+    },
+    {
+      "file": "test_cors.py",
+      "functions": 4,
+      "names": [
+        "test_cors_headers_on_get_health",
+        "test_cors_headers_on_post_diagnose",
+        "test_cors_preflight_options_for_diagnose",
+        "test_cors_preflight_options_for_quiz"
+      ],
+      "cases": 19,
+      "passed": 19
+    },
+    {
+      "file": "test_diagnose.py",
+      "functions": 8,
+      "names": [
+        "test_diagnose_distractor_trap_offline_fallback",
+        "test_diagnose_correct_option",
+        "test_diagnose_multi_subject_distractors",
+        "test_diagnose_missing_fields_unprocessable_entity",
+        "test_diagnose_nonexistent_question_id",
+        "test_diagnose_camel_case_input_interoperability",
+        "test_diagnose_resilience_under_mocked_network_outage",
+        "test_diagnose_socratic_guidance_pedagogical_depth"
+      ],
+      "cases": 10,
+      "passed": 10
+    },
+    {
+      "file": "test_e2e_frontend.py",
+      "functions": 6,
+      "names": [
+        "test_frontend_root_static_mount_serves_html",
+        "test_frontend_index_html_direct_route",
+        "test_frontend_static_stylesheet_serves_css",
+        "test_frontend_static_script_serves_javascript",
+        "test_frontend_files_exist_on_disk",
+        "test_html_dom_elements_required_by_app_js"
+      ],
+      "cases": 6,
+      "passed": 6
+    },
+    {
+      "file": "test_empirical_stress.py",
+      "functions": 7,
+      "names": [
+        "test_exhaustive_dom_audit_and_null_guards",
+        "test_exhaustive_option_click_simulation",
+        "test_option_click_dual_naming_convention",
+        "test_offline_fallback_zero_500_guarantee",
+        "test_offline_graceful_handling_unknown_question",
+        "test_offline_graceful_handling_invalid_option_key",
+        "test_single_port_static_serving"
+      ],
+      "cases": 12,
+      "passed": 12
+    },
+    {
+      "file": "test_health.py",
+      "functions": 5,
+      "names": [
+        "test_health_probe_success",
+        "test_health_probe_schema_fields",
+        "test_health_probe_content_type_header",
+        "test_health_probe_disallowed_methods",
+        "test_health_probe_repeatability"
+      ],
+      "cases": 8,
+      "passed": 8
+    },
+    {
+      "file": "test_llm_health.py",
+      "functions": 19,
+      "names": [
+        "test_health_llm_reports_missing_key",
+        "test_health_endpoint_unchanged",
+        "test_health_llm_masks_the_key_and_never_echoes_it",
+        "test_health_llm_success_path_reports_latency_and_sample",
+        "test_classify_http_status",
+        "test_classify_timeout_and_network_exceptions",
+        "test_dashscope_business_codes",
+        "test_http_200_with_business_error_code_is_not_reported_as_ok",
+        "test_http_200_with_no_content_is_a_payload_failure",
+        "test_rejected_key_is_classified_as_auth",
+        "test_probe_never_raises_on_transport_failures",
+        "test_endpoint_stays_200_when_the_transport_explodes",
+        "test_probe_without_key_reports_no_key",
+        "test_truncate_safely_keeps_short_text_untouched",
+        "test_truncate_safely_cuts_latin_text_on_a_word_boundary",
+        "test_truncate_safely_handles_cjk_text_that_has_no_spaces",
+        "test_truncate_safely_collapses_whitespace",
+        "test_mask_secret_never_returns_the_input",
+        "test_cli_exit_codes"
+      ],
+      "cases": 36,
+      "passed": 36
+    },
+    {
+      "file": "test_quiz.py",
+      "functions": 6,
+      "names": [
+        "test_quiz_endpoint_valid_subjects",
+        "test_quiz_default_subject_query",
+        "test_quiz_subject_aliasing",
+        "test_quiz_subject_case_insensitivity",
+        "test_quiz_invalid_subject_graceful_handling",
+        "test_quiz_adversarial_subject_inputs"
+      ],
+      "cases": 21,
+      "passed": 21
+    },
+    {
+      "file": "test_reports.py",
+      "functions": 9,
+      "names": [
+        "test_report_summary_default",
+        "test_report_trend_default",
+        "test_report_summary_valid_subjects",
+        "test_report_summary_aliasing",
+        "test_report_trend_valid_subjects",
+        "test_report_unknown_subject_zero_state",
+        "test_report_trend_unknown_subject_neutral",
+        "test_report_camelcase_interoperability",
+        "test_report_adversarial_resilience"
+      ],
+      "cases": 23,
+      "passed": 23
+    }
+  ],
+  "cases": [
+    {
+      "class": "tests.test_adversarial_backend.TestMalformedPayloads",
+      "name": "test_diagnose_empty_json_body",
+      "seconds": 0.009,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestMalformedPayloads",
+      "name": "test_diagnose_invalid_json_syntax",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestMalformedPayloads",
+      "name": "test_diagnose_non_string_types",
+      "seconds": 0.008,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestMalformedPayloads",
+      "name": "test_diagnose_extra_unknown_fields",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestMalformedPayloads",
+      "name": "test_quiz_boundary_limit_parameters",
+      "seconds": 0.008,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestInjectionAndSecurityBoundaries",
+      "name": "test_diagnose_sqli_resilience[' OR '1'='1]",
+      "seconds": 0.003,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestInjectionAndSecurityBoundaries",
+      "name": "test_diagnose_sqli_resilience[econ_1' OR 1=1; DROP TABLE questions; --]",
+      "seconds": 0.004,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestInjectionAndSecurityBoundaries",
+      "name": "test_diagnose_sqli_resilience[' UNION SELECT NULL, NULL, NULL, NULL --]",
+      "seconds": 0.004,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestInjectionAndSecurityBoundaries",
+      "name": "test_diagnose_sqli_resilience[1; EXEC xp_cmdshell('dir'); --]",
+      "seconds": 0.003,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestInjectionAndSecurityBoundaries",
+      "name": "test_diagnose_sqli_resilience[admin'--]",
+      "seconds": 0.003,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestInjectionAndSecurityBoundaries",
+      "name": "test_quiz_sqli_in_subject[' OR '1'='1]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestInjectionAndSecurityBoundaries",
+      "name": "test_quiz_sqli_in_subject[econ' OR 1=1 --]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestInjectionAndSecurityBoundaries",
+      "name": "test_quiz_sqli_in_subject['; DROP TABLE subjects; --]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestInjectionAndSecurityBoundaries",
+      "name": "test_diagnose_xss_resilience[<script>alert('XSS')</script>]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestInjectionAndSecurityBoundaries",
+      "name": "test_diagnose_xss_resilience[<img src=x onerror=alert(document.cookie)>]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestInjectionAndSecurityBoundaries",
+      "name": "test_diagnose_xss_resilience[<svg/onload=confirm(1)>]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestInjectionAndSecurityBoundaries",
+      "name": "test_diagnose_xss_resilience[javascript:alert(1)]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestInjectionAndSecurityBoundaries",
+      "name": "test_diagnose_xss_resilience['\"><script src=//evil.com/xss.js></script>]",
+      "seconds": 0.003,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestInjectionAndSecurityBoundaries",
+      "name": "test_path_traversal_resilience[../../../../etc/passwd]",
+      "seconds": 0.004,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestInjectionAndSecurityBoundaries",
+      "name": "test_path_traversal_resilience[..\\\\..\\\\..\\\\windows\\\\win.ini]",
+      "seconds": 0.004,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestInjectionAndSecurityBoundaries",
+      "name": "test_path_traversal_resilience[%2e%2e%2f%2e%2e%2fetc%2fpasswd]",
+      "seconds": 0.004,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestInjectionAndSecurityBoundaries",
+      "name": "test_path_traversal_resilience[....//....//....//etc/shadow]",
+      "seconds": 0.005,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestInjectionAndSecurityBoundaries",
+      "name": "test_extreme_string_length_fuzzing",
+      "seconds": 0.006,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestEdgeCaseInputsAndParameters",
+      "name": "test_quiz_unknown_subject_returns_empty_list",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestEdgeCaseInputsAndParameters",
+      "name": "test_quiz_empty_and_whitespace_subject",
+      "seconds": 0.009,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestEdgeCaseInputsAndParameters",
+      "name": "test_diagnose_unknown_question_id_fallback",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestEdgeCaseInputsAndParameters",
+      "name": "test_diagnose_invalid_option_keys",
+      "seconds": 0.008,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestEdgeCaseInputsAndParameters",
+      "name": "test_diagnose_unicode_and_emojis",
+      "seconds": 0.012,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestOfflineAndFaultTolerance",
+      "name": "test_diagnose_offline_mode_active",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestOfflineAndFaultTolerance",
+      "name": "test_diagnose_simulated_dashscope_timeout",
+      "seconds": 0.092,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestOfflineAndFaultTolerance",
+      "name": "test_diagnose_simulated_dashscope_connection_failure",
+      "seconds": 0.043,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestOfflineAndFaultTolerance",
+      "name": "test_diagnose_simulated_dashscope_upstream_500_response",
+      "seconds": 0.044,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestOfflineAndFaultTolerance",
+      "name": "test_diagnose_simulated_internal_catastrophic_exception",
+      "seconds": 0.003,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestConcurrencyAndStress",
+      "name": "test_rapid_concurrent_diagnose_calls",
+      "seconds": 0.064,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestConcurrencyAndStress",
+      "name": "test_rapid_concurrent_quiz_calls",
+      "seconds": 0.068,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestConcurrencyAndStress",
+      "name": "test_mixed_rapid_concurrent_load",
+      "seconds": 0.08,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestHttpMethodsAndEndpoints",
+      "name": "test_unsupported_http_methods",
+      "seconds": 0.013,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_adversarial_backend.TestHttpMethodsAndEndpoints",
+      "name": "test_unmapped_api_route_returns_404",
+      "seconds": 0.003,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_auth",
+      "name": "test_get_demo_users",
+      "seconds": 0.007,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_auth",
+      "name": "test_login_known_student_by_id",
+      "seconds": 0.003,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_auth",
+      "name": "test_login_known_student_by_name",
+      "seconds": 0.003,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_auth",
+      "name": "test_login_guest_student",
+      "seconds": 0.003,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_auth",
+      "name": "test_login_new_student_dynamic_provisioning",
+      "seconds": 0.003,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_auth",
+      "name": "test_register_new_student",
+      "seconds": 0.003,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_auth",
+      "name": "test_login_empty_id_fallback",
+      "seconds": 0.003,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_auth",
+      "name": "test_login_missing_field_422",
+      "seconds": 0.003,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_auth",
+      "name": "test_login_accepts_camel_case_alias",
+      "seconds": 0.003,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_auth",
+      "name": "test_register_accepts_camel_case_alias",
+      "seconds": 0.004,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_cors",
+      "name": "test_cors_headers_on_get_health[http://localhost:8000]",
+      "seconds": 0.003,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_cors",
+      "name": "test_cors_headers_on_get_health[http://127.0.0.1:8000]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_cors",
+      "name": "test_cors_headers_on_get_health[http://localhost:3000]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_cors",
+      "name": "test_cors_headers_on_get_health[http://localhost:5500]",
+      "seconds": 0.02,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_cors",
+      "name": "test_cors_headers_on_get_health[http://127.0.0.1:5500]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_cors",
+      "name": "test_cors_headers_on_get_health[null]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_cors",
+      "name": "test_cors_headers_on_post_diagnose[http://localhost:8000]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_cors",
+      "name": "test_cors_headers_on_post_diagnose[http://127.0.0.1:8000]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_cors",
+      "name": "test_cors_headers_on_post_diagnose[http://localhost:3000]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_cors",
+      "name": "test_cors_headers_on_post_diagnose[http://localhost:5500]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_cors",
+      "name": "test_cors_headers_on_post_diagnose[http://127.0.0.1:5500]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_cors",
+      "name": "test_cors_headers_on_post_diagnose[null]",
+      "seconds": 0.003,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_cors",
+      "name": "test_cors_preflight_options_for_diagnose[http://localhost:8000]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_cors",
+      "name": "test_cors_preflight_options_for_diagnose[http://127.0.0.1:8000]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_cors",
+      "name": "test_cors_preflight_options_for_diagnose[http://localhost:3000]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_cors",
+      "name": "test_cors_preflight_options_for_diagnose[http://localhost:5500]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_cors",
+      "name": "test_cors_preflight_options_for_diagnose[http://127.0.0.1:5500]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_cors",
+      "name": "test_cors_preflight_options_for_diagnose[null]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_cors",
+      "name": "test_cors_preflight_options_for_quiz",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_diagnose",
+      "name": "test_diagnose_distractor_trap_offline_fallback",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_diagnose",
+      "name": "test_diagnose_correct_option",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_diagnose",
+      "name": "test_diagnose_multi_subject_distractors[law_distractor_payload]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_diagnose",
+      "name": "test_diagnose_multi_subject_distractors[cs_distractor_payload]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_diagnose",
+      "name": "test_diagnose_multi_subject_distractors[se_distractor_payload]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_diagnose",
+      "name": "test_diagnose_missing_fields_unprocessable_entity",
+      "seconds": 0.005,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_diagnose",
+      "name": "test_diagnose_nonexistent_question_id",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_diagnose",
+      "name": "test_diagnose_camel_case_input_interoperability",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_diagnose",
+      "name": "test_diagnose_resilience_under_mocked_network_outage",
+      "seconds": 0.103,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_diagnose",
+      "name": "test_diagnose_socratic_guidance_pedagogical_depth",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_e2e_frontend",
+      "name": "test_frontend_root_static_mount_serves_html",
+      "seconds": 0.068,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_e2e_frontend",
+      "name": "test_frontend_index_html_direct_route",
+      "seconds": 0.003,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_e2e_frontend",
+      "name": "test_frontend_static_stylesheet_serves_css",
+      "seconds": 0.003,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_e2e_frontend",
+      "name": "test_frontend_static_script_serves_javascript",
+      "seconds": 0.004,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_e2e_frontend",
+      "name": "test_frontend_files_exist_on_disk",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_e2e_frontend",
+      "name": "test_html_dom_elements_required_by_app_js",
+      "seconds": 0.001,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_empirical_stress",
+      "name": "test_exhaustive_dom_audit_and_null_guards",
+      "seconds": 0.003,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_empirical_stress",
+      "name": "test_exhaustive_option_click_simulation",
+      "seconds": 0.113,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_empirical_stress",
+      "name": "test_option_click_dual_naming_convention[payload0]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_empirical_stress",
+      "name": "test_option_click_dual_naming_convention[payload1]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_empirical_stress",
+      "name": "test_option_click_dual_naming_convention[payload2]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_empirical_stress",
+      "name": "test_option_click_dual_naming_convention[payload3]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_empirical_stress",
+      "name": "test_option_click_dual_naming_convention[payload4]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_empirical_stress",
+      "name": "test_option_click_dual_naming_convention[payload5]",
+      "seconds": 0.003,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_empirical_stress",
+      "name": "test_offline_fallback_zero_500_guarantee",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_empirical_stress",
+      "name": "test_offline_graceful_handling_unknown_question",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_empirical_stress",
+      "name": "test_offline_graceful_handling_invalid_option_key",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_empirical_stress",
+      "name": "test_single_port_static_serving",
+      "seconds": 0.013,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_health",
+      "name": "test_health_probe_success",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_health",
+      "name": "test_health_probe_schema_fields",
+      "seconds": 0.003,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_health",
+      "name": "test_health_probe_content_type_header",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_health",
+      "name": "test_health_probe_disallowed_methods[post]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_health",
+      "name": "test_health_probe_disallowed_methods[put]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_health",
+      "name": "test_health_probe_disallowed_methods[delete]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_health",
+      "name": "test_health_probe_disallowed_methods[patch]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_health",
+      "name": "test_health_probe_repeatability",
+      "seconds": 0.009,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_health_llm_reports_missing_key",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_health_endpoint_unchanged",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_health_llm_masks_the_key_and_never_echoes_it",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_health_llm_success_path_reports_latency_and_sample",
+      "seconds": 0.001,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_classify_http_status[401-auth-False]",
+      "seconds": 0.001,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_classify_http_status[403-auth-False]",
+      "seconds": 0.0,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_classify_http_status[429-rate_limit-True]",
+      "seconds": 0.0,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_classify_http_status[404-payload-False]",
+      "seconds": 0.0,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_classify_http_status[400-payload-False]",
+      "seconds": 0.0,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_classify_http_status[500-server-True]",
+      "seconds": 0.0,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_classify_http_status[503-server-True]",
+      "seconds": 0.0,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_classify_timeout_and_network_exceptions",
+      "seconds": 0.0,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_dashscope_business_codes[InvalidApiKey-auth]",
+      "seconds": 0.0,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_dashscope_business_codes[invalid_api_key-auth]",
+      "seconds": 0.0,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_dashscope_business_codes[Arrearage-auth]",
+      "seconds": 0.0,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_dashscope_business_codes[Throttling.RateQuota-rate_limit]",
+      "seconds": 0.0,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_dashscope_business_codes[Throttling-rate_limit]",
+      "seconds": 0.0,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_dashscope_business_codes[ModelNotFound-payload]",
+      "seconds": 0.0,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_dashscope_business_codes[InvalidParameter-payload]",
+      "seconds": 0.0,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_dashscope_business_codes[SomethingElse-None]",
+      "seconds": 0.0,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_dashscope_business_codes[None-None]",
+      "seconds": 0.0,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_http_200_with_business_error_code_is_not_reported_as_ok",
+      "seconds": 0.001,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_http_200_with_no_content_is_a_payload_failure",
+      "seconds": 0.018,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_rejected_key_is_classified_as_auth",
+      "seconds": 0.001,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_probe_never_raises_on_transport_failures[outcome0-timeout]",
+      "seconds": 0.001,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_probe_never_raises_on_transport_failures[outcome1-network]",
+      "seconds": 0.012,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_probe_never_raises_on_transport_failures[outcome2-network]",
+      "seconds": 0.001,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_probe_never_raises_on_transport_failures[outcome3-unknown]",
+      "seconds": 0.001,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_endpoint_stays_200_when_the_transport_explodes",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_probe_without_key_reports_no_key",
+      "seconds": 0.001,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_truncate_safely_keeps_short_text_untouched",
+      "seconds": 0.0,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_truncate_safely_cuts_latin_text_on_a_word_boundary",
+      "seconds": 0.0,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_truncate_safely_handles_cjk_text_that_has_no_spaces",
+      "seconds": 0.0,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_truncate_safely_collapses_whitespace",
+      "seconds": 0.0,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_mask_secret_never_returns_the_input",
+      "seconds": 0.0,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_llm_health",
+      "name": "test_cli_exit_codes",
+      "seconds": 0.003,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_quiz",
+      "name": "test_quiz_endpoint_valid_subjects[economics]",
+      "seconds": 0.003,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_quiz",
+      "name": "test_quiz_endpoint_valid_subjects[econ]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_quiz",
+      "name": "test_quiz_endpoint_valid_subjects[cs]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_quiz",
+      "name": "test_quiz_endpoint_valid_subjects[law]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_quiz",
+      "name": "test_quiz_endpoint_valid_subjects[se]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_quiz",
+      "name": "test_quiz_default_subject_query",
+      "seconds": 0.003,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_quiz",
+      "name": "test_quiz_subject_aliasing[alias_pair0]",
+      "seconds": 0.004,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_quiz",
+      "name": "test_quiz_subject_aliasing[alias_pair1]",
+      "seconds": 0.004,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_quiz",
+      "name": "test_quiz_subject_aliasing[alias_pair2]",
+      "seconds": 0.004,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_quiz",
+      "name": "test_quiz_subject_case_insensitivity[ECONOMICS]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_quiz",
+      "name": "test_quiz_subject_case_insensitivity[Econ]",
+      "seconds": 0.003,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_quiz",
+      "name": "test_quiz_subject_case_insensitivity[CS]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_quiz",
+      "name": "test_quiz_subject_case_insensitivity[Law]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_quiz",
+      "name": "test_quiz_subject_case_insensitivity[SE]",
+      "seconds": 0.003,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_quiz",
+      "name": "test_quiz_invalid_subject_graceful_handling",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_quiz",
+      "name": "test_quiz_adversarial_subject_inputs[]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_quiz",
+      "name": "test_quiz_adversarial_subject_inputs[   ]",
+      "seconds": 0.003,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_quiz",
+      "name": "test_quiz_adversarial_subject_inputs[<script>alert(1)</script>]",
+      "seconds": 0.003,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_quiz",
+      "name": "test_quiz_adversarial_subject_inputs[' OR '1'='1]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_quiz",
+      "name": "test_quiz_adversarial_subject_inputs[../etc/passwd]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_quiz",
+      "name": "test_quiz_adversarial_subject_inputs[adversarial_input5]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_reports",
+      "name": "test_report_summary_default",
+      "seconds": 0.003,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_reports",
+      "name": "test_report_trend_default",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_reports",
+      "name": "test_report_summary_valid_subjects[law]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_reports",
+      "name": "test_report_summary_valid_subjects[econ]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_reports",
+      "name": "test_report_summary_valid_subjects[cs]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_reports",
+      "name": "test_report_summary_valid_subjects[se]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_reports",
+      "name": "test_report_summary_aliasing[alias_pair0]",
+      "seconds": 0.005,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_reports",
+      "name": "test_report_summary_aliasing[alias_pair1]",
+      "seconds": 0.004,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_reports",
+      "name": "test_report_summary_aliasing[alias_pair2]",
+      "seconds": 0.004,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_reports",
+      "name": "test_report_summary_aliasing[alias_pair3]",
+      "seconds": 0.004,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_reports",
+      "name": "test_report_trend_valid_subjects[law]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_reports",
+      "name": "test_report_trend_valid_subjects[econ]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_reports",
+      "name": "test_report_trend_valid_subjects[cs]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_reports",
+      "name": "test_report_trend_valid_subjects[se]",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_reports",
+      "name": "test_report_unknown_subject_zero_state",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_reports",
+      "name": "test_report_trend_unknown_subject_neutral",
+      "seconds": 0.002,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_reports",
+      "name": "test_report_camelcase_interoperability",
+      "seconds": 0.004,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_reports",
+      "name": "test_report_adversarial_resilience[]",
+      "seconds": 0.004,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_reports",
+      "name": "test_report_adversarial_resilience[   ]",
+      "seconds": 0.004,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_reports",
+      "name": "test_report_adversarial_resilience[<script>alert('xss')</script>]",
+      "seconds": 0.004,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_reports",
+      "name": "test_report_adversarial_resilience[' OR '1'='1]",
+      "seconds": 0.004,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_reports",
+      "name": "test_report_adversarial_resilience[../../etc/passwd]",
+      "seconds": 0.004,
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "class": "tests.test_reports",
+      "name": "test_report_adversarial_resilience[adversarial_input5]",
+      "seconds": 0.005,
+      "status": "passed",
+      "detail": ""
+    }
+  ],
+  "routes": {
+    "/api/health": [
+      "get"
+    ],
+    "/api/health/llm": [
+      "get"
+    ],
+    "/api/quiz": [
+      "get"
+    ],
+    "/api/diagnose": [
+      "post"
+    ],
+    "/api/reports/summary": [
+      "get"
+    ],
+    "/api/reports/trend": [
+      "get"
+    ],
+    "/api/auth/demo-users": [
+      "get"
+    ],
+    "/api/auth/login": [
+      "post"
+    ],
+    "/api/auth/register": [
+      "post"
+    ]
+  },
+  "questions": 17,
+  "subjects": [
+    "cs",
+    "econ",
+    "eng",
+    "law",
+    "mis",
+    "mkt",
+    "or",
+    "prob_stat",
+    "se"
+  ],
+  "probes": [
+    {
+      "label": "health",
+      "method": "GET",
+      "url": "/api/health",
+      "status": 200,
+      "body": {
+        "status": "ok",
+        "service": "smartstudy-poc",
+        "version": "1.0.0",
+        "mode": "dual-mode",
+        "has_api_key": false,
+        "hasApiKey": false
+      }
+    },
+    {
+      "label": "missing_key_probe",
+      "method": "GET",
+      "url": "/api/health/llm",
+      "status": 200,
+      "body": {
+        "ok": false,
+        "kind": "no_key",
+        "message": "No QWEN_API_KEY / DASHSCOPE_API_KEY configured; the service is running on the offline local-knowledge fallback (a valid degraded mode).",
+        "model": "qwen-turbo",
+        "endpoint": "https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation",
+        "api_key_masked": "(not configured)",
+        "apiKeyMasked": "(not configured)",
+        "latency_ms": null,
+        "latencyMs": null,
+        "status_code": null,
+        "statusCode": null,
+        "retryable": false,
+        "suggestion": "Set QWEN_API_KEY (or DASHSCOPE_API_KEY) in .env, then restart the backend. Until then every diagnosis uses the offline fallback.",
+        "details": {}
+      }
+    },
+    {
+      "label": "quiz_econ",
+      "method": "GET",
+      "url": "/api/quiz?subject=econ",
+      "status": 200,
+      "body": [
+        {
+          "id": "econ_1",
+          "question_id": "econ_1",
+          "questionId": "econ_1",
+          "subject": "econ",
+          "difficulty": "★★★★☆",
+          "tag": "经典假定违背 · 多重共线性与遗漏变量偏差",
+          "stem": "在多元回归模型 Y = β₀ + β₁X₁ + β₂X₂ + u 中，若自变量 X₁ 与 X₂ 之间存在严重但非完全的多重共线性，下列关于普通最小二乘法 (OLS) 估计量性质的描述中，哪一项是完全正确的？",
+          "options": [
+            {
+              "key": "A",
+              "text": "OLS 估计量失去无偏性 (Biased)，产生严重内生性偏差，无法客观反映总体真实参数",
+              "is_correct": false,
+              "isCorrect": false,
+              "trap_id": "trap_econ_1",
+              "trapId": "trap_econ_1"
+            },
+            {
+              "key": "B",
+              "text": "高斯-马尔可夫定理完全失效，OLS 估计量不再属于最佳线性无偏估计 (BLUE)",
+              "is_correct": false,
+              "isCorrect": false,
+              "trap_id": "trap_econ_2",
+              "trapId": "trap_econ_2"
+            },
+            {
+              "key": "C",
+              "text": "OLS 估计量依然保持无偏性与 BLUE 性质，但参数方差膨胀，导致 t 检验失效",
+              "is_correct": true,
+              "isCorrect": true,
+              "trap_id": null,
+              "trapId": null
+            },
+            {
+              "key": "D",
+              "text": "模型的总判定系数 R² 会严重受挫跌落至接近 0",
+              "is_correct": false,
+              "isCorrect": false,
+              "trap_id": "trap_econ_3",
+              "trapId": "trap_econ_3"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【权威考点解析 · 多重共线性的统计学后果】：在严格外生假定 E(u|X)=0 和同方差假定下，只要不存在'完全共线性'（|X'X| ≠ 0），高斯-马尔可夫定理全部成立！OLS 依然是无偏且 BLUE 的！共线性的真正后果是方差膨胀因子 (VIF) 剧增，标准误过大，单个变量的 t 统计量显著下降，但总体回归方程的 F 检验和 R² 通常依然很高！",
+          "trap_hint": "🚨 混淆无偏性与有效性边界：把'估计精度不足'误等同于'估计量有偏'",
+          "trapHint": "🚨 混淆无偏性与有效性边界：把'估计精度不足'误等同于'估计量有偏'",
+          "traps": {
+            "trap_econ_1": {
+              "title": "🚨 混淆无偏性与有效性边界：把'估计精度不足'误等同于'估计量有偏'",
+              "desc": "很多学生以及未经图谱事实约束的通用大模型，张口就回答'估计量有偏'！有偏（Bias）只有在遗漏关键变量或存在内生性时才会发生。自变量之间有相关性绝不破坏无偏性！",
+              "prereq": "遗漏变量偏差与高斯-马尔可夫定理：无偏性数学证明前提 E(u|X)=0",
+              "radar_hit": "recall",
+              "radarHit": "recall"
+            },
+            "trap_econ_2": {
+              "title": "🚨 定理条件理解陷阱：误判 BLUE 性质失效",
+              "desc": "在所有线性无偏估计量中，OLS 依然是方差最小的那个（BLUE），只是此时这个'最小方差'本身已经被样本数据推高了而已。",
+              "prereq": "先修定理前置：高斯-马尔可夫定理证明边界",
+              "radar_hit": "boundary",
+              "radarHit": "boundary"
+            },
+            "trap_econ_3": {
+              "title": "🚨 经典反常识表象陷阱：共线性下 R² 和 F 往往虚高！",
+              "desc": "多重共线性的最经典教科书表象就是：F 检验极度显著、R² 很高（如 0.85），但每个自变量的 t 检验都无法拒绝原假设！",
+              "prereq": "先修定理前置：联合假设 F 检验与个体 t 检验差异",
+              "radar_hit": "synthesis",
+              "radarHit": "synthesis"
+            }
+          },
+          "graph": {
+            "title": "多重共线性·统计性质与诊断陷阱拓扑图",
+            "nodes": [
+              {
+                "id": "c1",
+                "label": "多重共线性 (Multicollinearity)",
+                "type": "core",
+                "x": 260.0,
+                "y": 140.0
+              },
+              {
+                "id": "p1",
+                "label": "假定成立: E(u|X)=0 (严格外生)",
+                "type": "prereq",
+                "x": 120.0,
+                "y": 60.0
+              },
+              {
+                "id": "p2",
+                "label": "性质: 依然为 BLUE (无偏且有效)",
+                "type": "prereq",
+                "x": 400.0,
+                "y": 60.0
+              },
+              {
+                "id": "t1",
+                "label": "幻觉陷阱: 错判为产生内生偏误",
+                "type": "trap",
+                "x": 130.0,
+                "y": 240.0
+              },
+              {
+                "id": "t2",
+                "label": "表象陷阱: 误以为 R² 会暴跌",
+                "type": "trap",
+                "x": 390.0,
+                "y": 240.0
+              }
+            ],
+            "edges": [
+              {
+                "from": "p1",
+                "to": "c1",
+                "label": "保证无偏前提"
+              },
+              {
+                "from": "p2",
+                "to": "c1",
+                "label": "最小方差性质"
+              },
+              {
+                "from": "c1",
+                "to": "t1",
+                "label": "易错于 (混淆有偏与方差大)"
+              },
+              {
+                "from": "c1",
+                "to": "t2",
+                "label": "易错于 (忽略总体F检验)"
+              }
+            ]
+          },
+          "socratic_prompt": "请思考：高斯-马尔可夫定理中保证OLS无偏性的关键假定是什么？遗漏的变量进入了误差项，此时自变量与误差项是否仍然正交？参数估计值的期望值是否等于真实总体参数？",
+          "socraticPrompt": "请思考：高斯-马尔可夫定理中保证OLS无偏性的关键假定是什么？遗漏的变量进入了误差项，此时自变量与误差项是否仍然正交？参数估计值的期望值是否等于真实总体参数？"
+        },
+        {
+          "id": "econ_2",
+          "question_id": "econ_2",
+          "questionId": "econ_2",
+          "subject": "econ",
+          "difficulty": "★★★★★",
+          "tag": "因果推断核心 · 工具变量法 (IV/2SLS) 与弱工具变量",
+          "stem": "在估算教育年限（Educ）对对数工资水平（ln(Wage)）的因果效应方程中，因存在无法直接观测的'个人天生能力'遗漏，解释变量 Educ 产生严重内生性。研究人员选取'受教育者家庭距离最近大学的公里数 (Distance)'作为候选工具变量 Z。下列关于工具变量有效性及两阶段最小二乘法（2SLS）性质的论述，完全正确的是？",
+          "options": [
+            {
+              "key": "A",
+              "text": "Z 必须同时满足相关性条件（Cov(Z, Educ) ≠ 0）和严格的外生性排他性假定（Cov(Z, u) = 0 且 Z 不能直接决定工资）",
+              "is_correct": true,
+              "isCorrect": true,
+              "trap_id": null,
+              "trapId": null
+            },
+            {
+              "key": "B",
+              "text": "即便第一阶段回归的 F 统计量仅为 2.8（远低于 10），只要样本量 N 趋于无穷大，2SLS 估计量依然绝对无偏且方差最小",
+              "is_correct": false,
+              "isCorrect": false,
+              "trap_id": "trap_econ_2_1",
+              "trapId": "trap_econ_2_1"
+            },
+            {
+              "key": "C",
+              "text": "在模型恰好识别（内生变量数 = 工具变量数 = 1）时，可直接通过过度识别检验（Sargan-Hansen Test）在统计学上严格检验 Z 是否外生",
+              "is_correct": false,
+              "isCorrect": false,
+              "trap_id": "trap_econ_2_2",
+              "trapId": "trap_econ_2_2"
+            },
+            {
+              "key": "D",
+              "text": "为了提高因果解释力，合格的工具变量 Z 必须对因变量 ln(Wage) 具有显著而直接的强相关推动力",
+              "is_correct": false,
+              "isCorrect": false,
+              "trap_id": "trap_econ_2_3",
+              "trapId": "trap_econ_2_3"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【权威考点解析 · 工具变量法与因果识别】：① 工具变量两大铁律：外生性条件（Exogeneity，与扰动项正交且无直接因果通路）+ 相关性条件（Relevance，与内生变量强相关）；② Staiger-Stock 经验法则：第一阶段 F > 10 方可排除弱工具变量风险！弱工具变量会导致 2SLS 甚至比普通 OLS 偏误更大！③ 恰好识别时模型自由度为 0，外生性假定必须依赖经济学理论论证，数学上不可直接检验！",
+          "trap_hint": "🚨 弱工具变量致命盲区：大样本并不能自动拯救弱工具变量的严重偏误",
+          "trapHint": "🚨 弱工具变量致命盲区：大样本并不能自动拯救弱工具变量的严重偏误",
+          "traps": {
+            "trap_econ_2_1": {
+              "title": "🚨 弱工具变量致命盲区：大样本并不能自动拯救弱工具变量的严重偏误",
+              "desc": "这是计量经济学实证顶级翻车现场！当第一阶段相关性微弱时（F < 10），2SLS 的渐近偏误会朝 OLS 方向靠拢，抽样分布极度肥尾畸变，常规标准误完全失效，甚至产生毁灭性虚假因果！",
+              "prereq": "先修定理前置：Staiger-Stock 弱工具变量与有限样本偏误定理",
+              "radar_hit": "boundary",
+              "radarHit": "boundary"
+            },
+            "trap_econ_2_2": {
+              "title": "🚨 自由度与识别条件数学盲区：恰好识别根本无法进行统计外生性检验",
+              "desc": "过度识别检验（如 Sargan Test / Hansen J 统计量）的前提是工具变量个数 m 严格大于内生变量个数 k（即 m > k）。恰好识别时残差与预测值完全正交，残差平方和自由度为 0，根本无法做检验！",
+              "prereq": "先修定理前置：Sargan-Hansen 过度识别检验统计自由度定义",
+              "radar_hit": "precision",
+              "radarHit": "precision"
+            },
+            "trap_econ_2_3": {
+              "title": "🚨 排他性约束彻底颠倒：合格的工具变量绝对不能直接影响因变量！",
+              "desc": "排他性约束（Exclusion Restriction）的严苛定义是：工具变量 Z 只能'通过内生变量 Educ 这唯一通道'间接影响工资！若 Z 本身直接决定工资，则该变量直接进入原方程扰动项，外生性荡然无存！",
+              "prereq": "先修定理前置：DAG 因果有向无环图与排他性约束定理",
+              "radar_hit": "trapDefense",
+              "radarHit": "trapDefense"
+            }
+          },
+          "graph": {
+            "title": "因果推断·工具变量识别与外生性约束拓扑图",
+            "nodes": [
+              {
+                "id": "c1",
+                "label": "2SLS 工具变量识别",
+                "type": "core",
+                "x": 260.0,
+                "y": 140.0
+              },
+              {
+                "id": "p1",
+                "label": "排他性外生: Cov(Z,u)=0",
+                "type": "prereq",
+                "x": 120.0,
+                "y": 60.0
+              },
+              {
+                "id": "p2",
+                "label": "强相关检验: 阶段一F>10",
+                "type": "prereq",
+                "x": 400.0,
+                "y": 60.0
+              },
+              {
+                "id": "t1",
+                "label": "弱工具陷阱: F<10致严重偏误",
+                "type": "trap",
+                "x": 130.0,
+                "y": 240.0
+              },
+              {
+                "id": "t2",
+                "label": "错位陷阱: 恰好识别做Sargan",
+                "type": "trap",
+                "x": 390.0,
+                "y": 240.0
+              }
+            ],
+            "edges": [
+              {
+                "from": "p1",
+                "to": "c1",
+                "label": "因果外生约束"
+              },
+              {
+                "from": "p2",
+                "to": "c1",
+                "label": "识别强度门禁"
+              },
+              {
+                "from": "c1",
+                "to": "t1",
+                "label": "易错于 (低估弱工具破坏力)"
+              },
+              {
+                "from": "c1",
+                "to": "t2",
+                "label": "易错于 (忽视检验自由度约束)"
+              }
+            ]
+          },
+          "socratic_prompt": "请同学在脑海中画一条因果箭头：如果离大学近的地区本身就是高工资的沿海大城市（即 Z 直接影响了 Wage），那我们怎么可能分清楚那些高工资是因为多读了书，还是因为出生在大城市呢？这就是为什么排他性约束如此至关重要！",
+          "socraticPrompt": "请同学在脑海中画一条因果箭头：如果离大学近的地区本身就是高工资的沿海大城市（即 Z 直接影响了 Wage），那我们怎么可能分清楚那些高工资是因为多读了书，还是因为出生在大城市呢？这就是为什么排他性约束如此至关重要！"
+        },
+        {
+          "id": "econ_3",
+          "question_id": "econ_3",
+          "questionId": "econ_3",
+          "subject": "econ",
+          "difficulty": "★★★★☆",
+          "tag": "经典假定违背 · 异方差性怀特检验与稳健标准误",
+          "stem": "在截面家庭消费支出回归中，富裕家庭的储蓄与消费弹性差异远大于低收入家庭，导致误差项呈现随收入增加而发散的异方差性（Var(u_i|X_i) = σ_i²）。下列关于异方差对 OLS 的危害、检验方法及修正策略的叙述中，哪一项完全符合现代实证规范？",
+          "options": [
+            {
+              "key": "A",
+              "text": "存在异方差时，OLS 估计量 β̂ 彻底失去无偏性与一致性，算出来的回归系数数值完全毫无参考价值",
+              "is_correct": false,
+              "isCorrect": false,
+              "trap_id": "trap_econ_3_1",
+              "trapId": "trap_econ_3_1"
+            },
+            {
+              "key": "B",
+              "text": "怀特检验（White Test）要求研究者必须预先知道异方差的具体数学形式（如指数形式或线性形式）方可实施",
+              "is_correct": false,
+              "isCorrect": false,
+              "trap_id": "trap_econ_3_2",
+              "trapId": "trap_econ_3_2"
+            },
+            {
+              "key": "C",
+              "text": "OLS 估计量依然无偏且一致，但传统公式计算的标准误严重有偏；现代学界通用做法是直接采用 White 稳健标准误（Robust Standard Errors）进行统计推断",
+              "is_correct": true,
+              "isCorrect": true,
+              "trap_id": null,
+              "trapId": null
+            },
+            {
+              "key": "D",
+              "text": "采用加权最小二乘法 (WLS) 在任何情况下都无条件优于 OLS 稳健回归，绝对不可能引入新的模型设定误差",
+              "is_correct": false,
+              "isCorrect": false,
+              "trap_id": "trap_econ_3_3",
+              "trapId": "trap_econ_3_3"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【权威考点解析 · 异方差后果与稳健推断】：① 异方差违背同方差假定，破坏高斯-马尔可夫定理的'有效性（BLUE）'，但完全不影响期望 E(β̂)=β，故 OLS 估计量依然无偏且一致！② 异方差的真正致命伤是传统公式计算的 Var(β̂) 有偏，导致 t 统计量和置信区间全线失真！③ 怀特检验通过辅助回归无需预设异方差形式，学界当前黄金准则是报告 OLS 系数并配备 Heteroskedasticity-Robust 标准误（如 Stata 中的 , robust）！",
+          "trap_hint": "🚨 性质混淆高频深坑：把'有效性受损'误判为'估计量失去无偏性'",
+          "trapHint": "🚨 性质混淆高频深坑：把'有效性受损'误判为'估计量失去无偏性'",
+          "traps": {
+            "trap_econ_3_1": {
+              "title": "🚨 性质混淆高频深坑：把'有效性受损'误判为'估计量失去无偏性'",
+              "desc": "全班 60% 同学会脱口而出'OLS 估计量有偏'！无偏性的唯一前提是外生性 E(u|X)=0。残差方差变大变小，只是让估计量的抽样波动变大，绝不会让总体平均估计中心发生系统性偏移！",
+              "prereq": "先修定理前置：无偏性条件 vs BLUE 有效性条件断点对比",
+              "radar_hit": "recall",
+              "radarHit": "recall"
+            },
+            "trap_econ_3_2": {
+              "title": "🚨 统计检验机制混淆：误把'怀特检验'等同于依赖具体形式的检验",
+              "desc": "怀特检验最大的突破性贡献，正是由于它将残差平方对所有自变量的一阶项、平方项及交互项做辅助回归，完全不需要研究者猜测异方差是哪种特定函数！",
+              "prereq": "先修定理前置：White (1980) 渐近大样本辅助回归构造原理",
+              "radar_hit": "boundary",
+              "radarHit": "boundary"
+            },
+            "trap_econ_3_3": {
+              "title": "🚨 WLS 盲目盲信反模式：错误权重的 WLS 甚至比 OLS 还要糟糕",
+              "desc": "可行广义最小二乘法 (FGLS/WLS) 只有在研究者准确猜对异方差函数结构时才渐近有效。若权重矩阵设定错误，WLS 的估计量反而会失去一致性，因此现代顶级实证论文几乎清一色采用 OLS + Robust 标准误！",
+              "prereq": "先修定理前置：FGLS 稳健性风险与夹心方差估计量（Sandwich Estimator）",
+              "radar_hit": "synthesis",
+              "radarHit": "synthesis"
+            }
+          },
+          "graph": {
+            "title": "异方差·成因后果与怀特稳健推断图谱",
+            "nodes": [
+              {
+                "id": "c1",
+                "label": "异方差性 (Var(u|X)=σi²)",
+                "type": "core",
+                "x": 260.0,
+                "y": 140.0
+              },
+              {
+                "id": "p1",
+                "label": "系数保持无偏与一致",
+                "type": "prereq",
+                "x": 120.0,
+                "y": 60.0
+              },
+              {
+                "id": "p2",
+                "label": "对策: White稳健标准误",
+                "type": "prereq",
+                "x": 400.0,
+                "y": 60.0
+              },
+              {
+                "id": "t1",
+                "label": "误区: 错判OLS系数有偏",
+                "type": "trap",
+                "x": 130.0,
+                "y": 240.0
+              },
+              {
+                "id": "t2",
+                "label": "误区: 盲目套用WLS权重",
+                "type": "trap",
+                "x": 390.0,
+                "y": 240.0
+              }
+            ],
+            "edges": [
+              {
+                "from": "p1",
+                "to": "c1",
+                "label": "外生假定成立"
+              },
+              {
+                "from": "p2",
+                "to": "c1",
+                "label": "夹心协方差修正"
+              },
+              {
+                "from": "c1",
+                "to": "t1",
+                "label": "易错于 (混淆方差大与期望偏)"
+              },
+              {
+                "from": "c1",
+                "to": "t2",
+                "label": "易错于 (忽视权重设定偏误)"
+              }
+            ]
+          },
+          "socratic_prompt": "请同学思考：如果一台电子秤只是偶尔称重读数抖动变大（方差大），但平均下来称 100 次的均值依然是完全准确的（无偏），我们应该直接扔掉这台秤，还是给它换一个能正确计算误差范围的合格说明书（稳健标准误）？",
+          "socraticPrompt": "请同学思考：如果一台电子秤只是偶尔称重读数抖动变大（方差大），但平均下来称 100 次的均值依然是完全准确的（无偏），我们应该直接扔掉这台秤，还是给它换一个能正确计算误差范围的合格说明书（稳健标准误）？"
+        }
+      ]
+    },
+    {
+      "label": "trend_missing",
+      "method": "GET",
+      "url": "/api/reports/trend",
+      "status": 200,
+      "body": {
+        "subject": "all",
+        "dimensions": [
+          "Basic Recall",
+          "Trap Defense",
+          "Deductive Synthesis",
+          "Boundary Migration",
+          "Domain Breadth"
+        ],
+        "scores": [
+          86.0,
+          77.8,
+          85.5,
+          72.0,
+          85.0
+        ],
+        "trap_distribution": [
+          {
+            "trap_name": "除斥期间混淆消灭时效",
+            "trapName": "除斥期间混淆消灭时效",
+            "subject": "law",
+            "count": 3
+          },
+          {
+            "trap_name": "遗漏变量与共线性混淆",
+            "trapName": "遗漏变量与共线性混淆",
+            "subject": "econ",
+            "count": 3
+          },
+          {
+            "trap_name": "UML用例Include/Extend混淆",
+            "trapName": "UML用例Include/Extend混淆",
+            "subject": "se",
+            "count": 3
+          },
+          {
+            "trap_name": "保留站与ROB职能偏差",
+            "trapName": "保留站与ROB职能偏差",
+            "subject": "cs",
+            "count": 2
+          },
+          {
+            "trap_name": "善意取得占有脱离物认定",
+            "trapName": "善意取得占有脱离物认定",
+            "subject": "law",
+            "count": 2
+          }
+        ],
+        "trapDistribution": [
+          {
+            "trap_name": "除斥期间混淆消灭时效",
+            "trapName": "除斥期间混淆消灭时效",
+            "subject": "law",
+            "count": 3
+          },
+          {
+            "trap_name": "遗漏变量与共线性混淆",
+            "trapName": "遗漏变量与共线性混淆",
+            "subject": "econ",
+            "count": 3
+          },
+          {
+            "trap_name": "UML用例Include/Extend混淆",
+            "trapName": "UML用例Include/Extend混淆",
+            "subject": "se",
+            "count": 3
+          },
+          {
+            "trap_name": "保留站与ROB职能偏差",
+            "trapName": "保留站与ROB职能偏差",
+            "subject": "cs",
+            "count": 2
+          },
+          {
+            "trap_name": "善意取得占有脱离物认定",
+            "trapName": "善意取得占有脱离物认定",
+            "subject": "law",
+            "count": 2
+          }
+        ],
+        "data_source": "session_telemetry",
+        "dataSource": "session_telemetry",
+        "generated_at": "2026-10-29T09:35:15.080419+00:00",
+        "generatedAt": "2026-10-29T09:35:15.080419+00:00"
+      }
+    },
+    {
+      "label": "summary_missing",
+      "method": "GET",
+      "url": "/api/reports/summary",
+      "status": 200,
+      "body": {
+        "subject": "all",
+        "attempt_count": 18,
+        "attemptCount": 18,
+        "correct_count": 14,
+        "correctCount": 14,
+        "accuracy_rate": 77.8,
+        "accuracyRate": 77.8,
+        "diagnostic_count": 4,
+        "diagnosticCount": 4,
+        "traps_identified": 9,
+        "trapsIdentified": 9,
+        "cognitive_score": 86.5,
+        "cognitiveScore": 86.5,
+        "streak_days": 5,
+        "streakDays": 5,
+        "data_source": "session_telemetry",
+        "dataSource": "session_telemetry",
+        "generated_at": "2026-10-29T09:35:15.082336+00:00",
+        "generatedAt": "2026-10-29T09:35:15.082336+00:00",
+        "weak_points": [
+          {
+            "topic": "民法典第 152 条 · 撤销权除斥期间",
+            "trap_name": "除斥期间混淆消灭时效中断陷阱",
+            "trapName": "除斥期间混淆消灭时效中断陷阱",
+            "fail_count": 3,
+            "failCount": 3,
+            "severity": "high",
+            "recommendation": "深入梳理除斥期间的不变期间属性，注意法院可依职权主动审查除斥期间届满。"
+          },
+          {
+            "topic": "物权变动 · 善意取得构成要件",
+            "trap_name": "占有委托物与占有脱离物认定偏差",
+            "trapName": "占有委托物与占有脱离物认定偏差",
+            "fail_count": 2,
+            "failCount": 2,
+            "severity": "medium",
+            "recommendation": "区分遗失物与基于租赁委托交付之物的法律救济途径差异。"
+          },
+          {
+            "topic": "内生性问题 · 遗漏变量偏差 (OVB)",
+            "trap_name": "遗漏变量偏差与多重共线性概念混淆",
+            "trapName": "遗漏变量偏差与多重共线性概念混淆",
+            "fail_count": 3,
+            "failCount": 3,
+            "severity": "high",
+            "recommendation": "复习 OLS 假设，识别控制变量与工具变量引入时的外生性假定条件。"
+          },
+          {
+            "topic": "需求价格弹性与总收益",
+            "trap_name": "弹性绝对值与降价收益反向判断陷阱",
+            "trapName": "弹性绝对值与降价收益反向判断陷阱",
+            "fail_count": 2,
+            "failCount": 2,
+            "severity": "medium",
+            "recommendation": "掌握边际收益与弹性公式关系：MR = P(1 - 1/|Ed|)。"
+          }
+        ],
+        "weakPoints": [
+          {
+            "topic": "民法典第 152 条 · 撤销权除斥期间",
+            "trap_name": "除斥期间混淆消灭时效中断陷阱",
+            "trapName": "除斥期间混淆消灭时效中断陷阱",
+            "fail_count": 3,
+            "failCount": 3,
+            "severity": "high",
+            "recommendation": "深入梳理除斥期间的不变期间属性，注意法院可依职权主动审查除斥期间届满。"
+          },
+          {
+            "topic": "物权变动 · 善意取得构成要件",
+            "trap_name": "占有委托物与占有脱离物认定偏差",
+            "trapName": "占有委托物与占有脱离物认定偏差",
+            "fail_count": 2,
+            "failCount": 2,
+            "severity": "medium",
+            "recommendation": "区分遗失物与基于租赁委托交付之物的法律救济途径差异。"
+          },
+          {
+            "topic": "内生性问题 · 遗漏变量偏差 (OVB)",
+            "trap_name": "遗漏变量偏差与多重共线性概念混淆",
+            "trapName": "遗漏变量偏差与多重共线性概念混淆",
+            "fail_count": 3,
+            "failCount": 3,
+            "severity": "high",
+            "recommendation": "复习 OLS 假设，识别控制变量与工具变量引入时的外生性假定条件。"
+          },
+          {
+            "topic": "需求价格弹性与总收益",
+            "trap_name": "弹性绝对值与降价收益反向判断陷阱",
+            "trapName": "弹性绝对值与降价收益反向判断陷阱",
+            "fail_count": 2,
+            "failCount": 2,
+            "severity": "medium",
+            "recommendation": "掌握边际收益与弹性公式关系：MR = P(1 - 1/|Ed|)。"
+          }
+        ]
+      }
+    },
+    {
+      "label": "auth_missing",
+      "method": "POST",
+      "url": "/api/auth/login",
+      "status": 422,
+      "body": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "student_id"
+            ],
+            "msg": "Field required",
+            "input": {
+              "username": "audit",
+              "password": "placeholder"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "label": "valid_wrong",
+      "method": "POST",
+      "url": "/api/diagnose",
+      "status": 200,
+      "body": {
+        "is_correct": false,
+        "isCorrect": false,
+        "question_id": "econ_1",
+        "questionId": "econ_1",
+        "selected_key": "A",
+        "selectedKey": "A",
+        "correct_key": "C",
+        "correctKey": "C",
+        "explanation": "【权威考点解析 · 多重共线性的统计学后果】：在严格外生假定 E(u|X)=0 和同方差假定下，只要不存在'完全共线性'（|X'X| ≠ 0），高斯-马尔可夫定理全部成立！OLS 依然是无偏且 BLUE 的！共线性的真正后果是方差膨胀因子 (VIF) 剧增，标准误过大，单个变量的 t 统计量显著下降，但总体回归方程的 F 检验和 R² 通常依然很高！",
+        "trap_id": "trap_econ_1",
+        "trapId": "trap_econ_1",
+        "trap_title": "🚨 混淆无偏性与有效性边界：把'估计精度不足'误等同于'估计量有偏'",
+        "trapTitle": "🚨 混淆无偏性与有效性边界：把'估计精度不足'误等同于'估计量有偏'",
+        "trap_name": "🚨 混淆无偏性与有效性边界：把'估计精度不足'误等同于'估计量有偏'",
+        "trapName": "🚨 混淆无偏性与有效性边界：把'估计精度不足'误等同于'估计量有偏'",
+        "concept_name": "遗漏变量偏差与高斯-马尔可夫定理：无偏性数学证明前提 E(u|X)=0",
+        "conceptName": "遗漏变量偏差与高斯-马尔可夫定理：无偏性数学证明前提 E(u|X)=0",
+        "misconception": "很多学生以及未经图谱事实约束的通用大模型，张口就回答'估计量有偏'！有偏（Bias）只有在遗漏关键变量或存在内生性时才会发生。自变量之间有相关性绝不破坏无偏性！",
+        "prerequisite": "遗漏变量偏差与高斯-马尔可夫定理：无偏性数学证明前提 E(u|X)=0",
+        "radar_dimension": "recall",
+        "radarDimension": "recall",
+        "score_delta": -5,
+        "scoreDelta": -5,
+        "socratic_guidance": "请思考：高斯-马尔可夫定理中保证OLS无偏性的关键假定是什么？遗漏的变量进入了误差项，此时自变量与误差项是否仍然正交？参数估计值的期望值是否等于真实总体参数？",
+        "socraticGuidance": "请思考：高斯-马尔可夫定理中保证OLS无偏性的关键假定是什么？遗漏的变量进入了误差项，此时自变量与误差项是否仍然正交？参数估计值的期望值是否等于真实总体参数？",
+        "socratic_hint": "请思考：高斯-马尔可夫定理中保证OLS无偏性的关键假定是什么？遗漏的变量进入了误差项，此时自变量与误差项是否仍然正交？参数估计值的期望值是否等于真实总体参数？",
+        "socraticHint": "请思考：高斯-马尔可夫定理中保证OLS无偏性的关键假定是什么？遗漏的变量进入了误差项，此时自变量与误差项是否仍然正交？参数估计值的期望值是否等于真实总体参数？",
+        "knowledge_nodes": [
+          "多重共线性 (Multicollinearity)",
+          "假定成立: E(u|X)=0 (严格外生)",
+          "性质: 依然为 BLUE (无偏且有效)",
+          "幻觉陷阱: 错判为产生内生偏误",
+          "表象陷阱: 误以为 R² 会暴跌"
+        ],
+        "knowledgeNodes": [
+          "多重共线性 (Multicollinearity)",
+          "假定成立: E(u|X)=0 (严格外生)",
+          "性质: 依然为 BLUE (无偏且有效)",
+          "幻觉陷阱: 错判为产生内生偏误",
+          "表象陷阱: 误以为 R² 会暴跌"
+        ],
+        "fallback_mode": true,
+        "fallbackMode": true,
+        "model_used": "local-knowledge-seed",
+        "modelUsed": "local-knowledge-seed"
+      }
+    },
+    {
+      "label": "valid_correct",
+      "method": "POST",
+      "url": "/api/diagnose",
+      "status": 200,
+      "body": {
+        "is_correct": true,
+        "isCorrect": true,
+        "question_id": "econ_1",
+        "questionId": "econ_1",
+        "selected_key": "C",
+        "selectedKey": "C",
+        "correct_key": "C",
+        "correctKey": "C",
+        "explanation": "【权威考点解析 · 多重共线性的统计学后果】：在严格外生假定 E(u|X)=0 和同方差假定下，只要不存在'完全共线性'（|X'X| ≠ 0），高斯-马尔可夫定理全部成立！OLS 依然是无偏且 BLUE 的！共线性的真正后果是方差膨胀因子 (VIF) 剧增，标准误过大，单个变量的 t 统计量显著下降，但总体回归方程的 F 检验和 R² 通常依然很高！",
+        "trap_id": null,
+        "trapId": null,
+        "trap_title": null,
+        "trapTitle": null,
+        "trap_name": null,
+        "trapName": null,
+        "concept_name": "已完全掌握该知识点核心定理与边界条件",
+        "conceptName": "已完全掌握该知识点核心定理与边界条件",
+        "misconception": null,
+        "prerequisite": "已完全掌握该知识点核心定理与边界条件",
+        "radar_dimension": "trapDefense",
+        "radarDimension": "trapDefense",
+        "score_delta": 5,
+        "scoreDelta": 5,
+        "socratic_guidance": "太棒了！考点精准命中，成功避开出题陷阱！基础概念牢固度与陷阱防御指数均已提升。",
+        "socraticGuidance": "太棒了！考点精准命中，成功避开出题陷阱！基础概念牢固度与陷阱防御指数均已提升。",
+        "socratic_hint": "太棒了！考点精准命中，成功避开出题陷阱！基础概念牢固度与陷阱防御指数均已提升。",
+        "socraticHint": "太棒了！考点精准命中，成功避开出题陷阱！基础概念牢固度与陷阱防御指数均已提升。",
+        "knowledge_nodes": [
+          "多重共线性 (Multicollinearity)",
+          "假定成立: E(u|X)=0 (严格外生)",
+          "性质: 依然为 BLUE (无偏且有效)",
+          "幻觉陷阱: 错判为产生内生偏误",
+          "表象陷阱: 误以为 R² 会暴跌"
+        ],
+        "knowledgeNodes": [
+          "多重共线性 (Multicollinearity)",
+          "假定成立: E(u|X)=0 (严格外生)",
+          "性质: 依然为 BLUE (无偏且有效)",
+          "幻觉陷阱: 错判为产生内生偏误",
+          "表象陷阱: 误以为 R² 会暴跌"
+        ],
+        "fallback_mode": false,
+        "fallbackMode": false,
+        "model_used": "rule-evaluation",
+        "modelUsed": "rule-evaluation"
+      }
+    },
+    {
+      "label": "unknown_id",
+      "method": "POST",
+      "url": "/api/diagnose",
+      "status": 200,
+      "body": {
+        "is_correct": false,
+        "isCorrect": false,
+        "question_id": "unknown_audit",
+        "questionId": "unknown_audit",
+        "selected_key": "A",
+        "selectedKey": "A",
+        "correct_key": "B",
+        "correctKey": "B",
+        "explanation": "未能定位到指定题目编号，系统已启动知识本体应急兜底模式。",
+        "trap_id": "trap_fallback",
+        "trapId": "trap_fallback",
+        "trap_title": "🚨 题目检索未命中",
+        "trapTitle": "🚨 题目检索未命中",
+        "trap_name": "🚨 题目检索未命中",
+        "trapName": "🚨 题目检索未命中",
+        "concept_name": "系统题目本体完整性",
+        "conceptName": "系统题目本体完整性",
+        "misconception": "未在题库索引中匹配到题目编号",
+        "prerequisite": "系统题目本体完整性",
+        "radar_dimension": "boundary",
+        "radarDimension": "boundary",
+        "score_delta": -2,
+        "scoreDelta": -2,
+        "socratic_guidance": "请检查题目索引是否有效，请尝试从该学科的基础概念定理出发进行推导。",
+        "socraticGuidance": "请检查题目索引是否有效，请尝试从该学科的基础概念定理出发进行推导。",
+        "socratic_hint": "请检查题目索引是否有效，请尝试从该学科的基础概念定理出发进行推导。",
+        "socraticHint": "请检查题目索引是否有效，请尝试从该学科的基础概念定理出发进行推导。",
+        "knowledge_nodes": [
+          "概念检索",
+          "基础假定"
+        ],
+        "knowledgeNodes": [
+          "概念检索",
+          "基础假定"
+        ],
+        "fallback_mode": true,
+        "fallbackMode": true,
+        "model_used": "local-safe-fallback",
+        "modelUsed": "local-safe-fallback"
+      }
+    },
+    {
+      "label": "invalid_option",
+      "method": "POST",
+      "url": "/api/diagnose",
+      "status": 200,
+      "body": {
+        "is_correct": false,
+        "isCorrect": false,
+        "question_id": "econ_1",
+        "questionId": "econ_1",
+        "selected_key": "Z",
+        "selectedKey": "Z",
+        "correct_key": "C",
+        "correctKey": "C",
+        "explanation": "【权威考点解析 · 多重共线性的统计学后果】：在严格外生假定 E(u|X)=0 和同方差假定下，只要不存在'完全共线性'（|X'X| ≠ 0），高斯-马尔可夫定理全部成立！OLS 依然是无偏且 BLUE 的！共线性的真正后果是方差膨胀因子 (VIF) 剧增，标准误过大，单个变量的 t 统计量显著下降，但总体回归方程的 F 检验和 R² 通常依然很高！",
+        "trap_id": "trap_econ_1",
+        "trapId": "trap_econ_1",
+        "trap_title": "🚨 混淆无偏性与有效性边界：把'估计精度不足'误等同于'估计量有偏'",
+        "trapTitle": "🚨 混淆无偏性与有效性边界：把'估计精度不足'误等同于'估计量有偏'",
+        "trap_name": "🚨 混淆无偏性与有效性边界：把'估计精度不足'误等同于'估计量有偏'",
+        "trapName": "🚨 混淆无偏性与有效性边界：把'估计精度不足'误等同于'估计量有偏'",
+        "concept_name": "遗漏变量偏差与高斯-马尔可夫定理：无偏性数学证明前提 E(u|X)=0",
+        "conceptName": "遗漏变量偏差与高斯-马尔可夫定理：无偏性数学证明前提 E(u|X)=0",
+        "misconception": "很多学生以及未经图谱事实约束的通用大模型，张口就回答'估计量有偏'！有偏（Bias）只有在遗漏关键变量或存在内生性时才会发生。自变量之间有相关性绝不破坏无偏性！",
+        "prerequisite": "遗漏变量偏差与高斯-马尔可夫定理：无偏性数学证明前提 E(u|X)=0",
+        "radar_dimension": "recall",
+        "radarDimension": "recall",
+        "score_delta": -5,
+        "scoreDelta": -5,
+        "socratic_guidance": "请思考：高斯-马尔可夫定理中保证OLS无偏性的关键假定是什么？遗漏的变量进入了误差项，此时自变量与误差项是否仍然正交？参数估计值的期望值是否等于真实总体参数？",
+        "socraticGuidance": "请思考：高斯-马尔可夫定理中保证OLS无偏性的关键假定是什么？遗漏的变量进入了误差项，此时自变量与误差项是否仍然正交？参数估计值的期望值是否等于真实总体参数？",
+        "socratic_hint": "请思考：高斯-马尔可夫定理中保证OLS无偏性的关键假定是什么？遗漏的变量进入了误差项，此时自变量与误差项是否仍然正交？参数估计值的期望值是否等于真实总体参数？",
+        "socraticHint": "请思考：高斯-马尔可夫定理中保证OLS无偏性的关键假定是什么？遗漏的变量进入了误差项，此时自变量与误差项是否仍然正交？参数估计值的期望值是否等于真实总体参数？",
+        "knowledge_nodes": [
+          "多重共线性 (Multicollinearity)",
+          "假定成立: E(u|X)=0 (严格外生)",
+          "性质: 依然为 BLUE (无偏且有效)",
+          "幻觉陷阱: 错判为产生内生偏误",
+          "表象陷阱: 误以为 R² 会暴跌"
+        ],
+        "knowledgeNodes": [
+          "多重共线性 (Multicollinearity)",
+          "假定成立: E(u|X)=0 (严格外生)",
+          "性质: 依然为 BLUE (无偏且有效)",
+          "幻觉陷阱: 错判为产生内生偏误",
+          "表象陷阱: 误以为 R² 会暴跌"
+        ],
+        "fallback_mode": true,
+        "fallbackMode": true,
+        "model_used": "local-knowledge-seed",
+        "modelUsed": "local-knowledge-seed"
+      }
+    },
+    {
+      "label": "empty_payload",
+      "method": "POST",
+      "url": "/api/diagnose",
+      "status": 200,
+      "body": {
+        "is_correct": false,
+        "isCorrect": false,
+        "question_id": "unknown",
+        "questionId": "unknown",
+        "selected_key": "A",
+        "selectedKey": "A",
+        "correct_key": "B",
+        "correctKey": "B",
+        "explanation": "未能定位到指定题目编号，系统已启动知识本体应急兜底模式。",
+        "trap_id": "trap_fallback",
+        "trapId": "trap_fallback",
+        "trap_title": "🚨 题目检索未命中",
+        "trapTitle": "🚨 题目检索未命中",
+        "trap_name": "🚨 题目检索未命中",
+        "trapName": "🚨 题目检索未命中",
+        "concept_name": "系统题目本体完整性",
+        "conceptName": "系统题目本体完整性",
+        "misconception": "未在题库索引中匹配到题目编号",
+        "prerequisite": "系统题目本体完整性",
+        "radar_dimension": "boundary",
+        "radarDimension": "boundary",
+        "score_delta": -2,
+        "scoreDelta": -2,
+        "socratic_guidance": "请检查题目索引是否有效，请尝试从该学科的基础概念定理出发进行推导。",
+        "socraticGuidance": "请检查题目索引是否有效，请尝试从该学科的基础概念定理出发进行推导。",
+        "socratic_hint": "请检查题目索引是否有效，请尝试从该学科的基础概念定理出发进行推导。",
+        "socraticHint": "请检查题目索引是否有效，请尝试从该学科的基础概念定理出发进行推导。",
+        "knowledge_nodes": [
+          "概念检索",
+          "基础假定"
+        ],
+        "knowledgeNodes": [
+          "概念检索",
+          "基础假定"
+        ],
+        "fallback_mode": true,
+        "fallbackMode": true,
+        "model_used": "local-safe-fallback",
+        "modelUsed": "local-safe-fallback"
+      }
+    },
+    {
+      "label": "type_confusion",
+      "method": "POST",
+      "url": "/api/diagnose",
+      "status": 422,
+      "body": {
+        "detail": [
+          {
+            "type": "string_type",
+            "loc": [
+              "body",
+              "question_id"
+            ],
+            "msg": "Input should be a valid string",
+            "input": [
+              "x"
+            ]
+          },
+          {
+            "type": "string_type",
+            "loc": [
+              "body",
+              "questionId"
+            ],
+            "msg": "Input should be a valid string",
+            "input": [
+              "x"
+            ]
+          },
+          {
+            "type": "string_type",
+            "loc": [
+              "body",
+              "selected_key"
+            ],
+            "msg": "Input should be a valid string",
+            "input": {
+              "x": 1
+            }
+          },
+          {
+            "type": "string_type",
+            "loc": [
+              "body",
+              "selectedKey"
+            ],
+            "msg": "Input should be a valid string",
+            "input": {
+              "x": 1
+            }
+          },
+          {
+            "type": "string_type",
+            "loc": [
+              "body",
+              "selected_option"
+            ],
+            "msg": "Input should be a valid string",
+            "input": {
+              "x": 1
+            }
+          },
+          {
+            "type": "string_type",
+            "loc": [
+              "body",
+              "selectedOption"
+            ],
+            "msg": "Input should be a valid string",
+            "input": {
+              "x": 1
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "benchmark": [
+    {
+      "subject": "Professional Law",
+      "base": 0.61,
+      "ours": 0.635,
+      "delta_pp": 2.500000000000002
+    },
+    {
+      "subject": "High School Computer Science",
+      "base": 0.86,
+      "ours": 0.88,
+      "delta_pp": 2.0000000000000018
+    },
+    {
+      "subject": "Public Relations",
+      "base": 0.7272727272727273,
+      "ours": 0.7454545454545455,
+      "delta_pp": 1.8181818181818188
+    },
+    {
+      "subject": "Econometrics",
+      "base": 0.6491228070175439,
+      "ours": 0.6666666666666666,
+      "delta_pp": 1.754385964912275
+    },
+    {
+      "subject": "Miscellaneous",
+      "base": 0.885,
+      "ours": 0.89,
+      "delta_pp": 0.5000000000000004
+    },
+    {
+      "subject": "High School Biology",
+      "base": 0.92,
+      "ours": 0.925,
+      "delta_pp": 0.5000000000000004
+    },
+    {
+      "subject": "Professional Psychology",
+      "base": 0.775,
+      "ours": 0.78,
+      "delta_pp": 0.5000000000000004
+    },
+    {
+      "subject": "Electrical Engineering",
+      "base": 0.7931034482758621,
+      "ours": 0.7931034482758621,
+      "delta_pp": 0.0
+    },
+    {
+      "subject": "Human Aging",
+      "base": 0.725,
+      "ours": 0.725,
+      "delta_pp": 0.0
+    },
+    {
+      "subject": "World Religions",
+      "base": 0.8538011695906432,
+      "ours": 0.8538011695906432,
+      "delta_pp": 0.0
+    },
+    {
+      "subject": "High School Us History",
+      "base": 0.885,
+      "ours": 0.875,
+      "delta_pp": -1.0000000000000009
+    },
+    {
+      "subject": "High School Physics",
+      "base": 0.6026490066225165,
+      "ours": 0.5894039735099338,
+      "delta_pp": -1.3245033112582738
+    }
+  ],
+  "macro_delta_pp": 0.6040053726529854,
+  "hashes": {
+    "tests/__init__.py": "7cb755d8f0c1800d0ad885641494fe1381949edc7a65f1b5becae156f4d60ba8",
+    "tests/conftest.py": "4236b14648f3bc6f9166a40d88f2f3dd2ec8b63e5c25c1aeb177fd6293420e21",
+    "tests/test_adversarial_backend.py": "fd04842ba6f44f1c49f3f20223e71b9587862bc788ce58c2ab8e4b6616a76f63",
+    "tests/test_auth.py": "2f34a5b0b01458af9b6ec41f4e3e3d568663d2dc02805590b0508fbdd26097dc",
+    "tests/test_cors.py": "6498d3fefee746755fe65d0be7161571b5542fa9ac837f7a7a4e1d0da7798518",
+    "tests/test_diagnose.py": "77c714d2a19335676e68d49b15cc3a9d11ab4478760eee7d7ee0b434d1176151",
+    "tests/test_e2e_frontend.py": "3e4b6ed663740555925716de527c4950b482adc83bd0a1237f83895d17de26bb",
+    "tests/test_empirical_stress.py": "6cad3c0d587c2005daa3fe7958633f999352f483f93eddf77aa866f04d2100ce",
+    "tests/test_health.py": "c43f277ee9b7150728863258dd582be2e3de8517da070ee8016310051a3fd876",
+    "tests/test_llm_health.py": "5120a74d8ddfccaf1c11f1e11c36c8beee48f27b378116e9575e8e4a58db09f8",
+    "tests/test_quiz.py": "abb4b32ab52eeb4213b11963bb92d0b2ffbd995495035b4e830f22ee736917f1",
+    "tests/test_reports.py": "534ac35046832b9b0f21fe89b2ea56074e879e9fc1dd8b51ddda73fdd165a2eb"
+  }
+}

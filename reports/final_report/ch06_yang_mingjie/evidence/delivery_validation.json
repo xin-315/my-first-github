@@ -1,0 +1,78 @@
+{
+  "date": "2026-10-29",
+  "scope": "Mingjie Yang (50106061) only: Chapter 6, Appendix C, user manual, assigned peer review and viva preparation.",
+  "primary_snapshot": "ae7ab47c6ff77b17f0ca62836b2c01e36da57187",
+  "comparison_snapshot": "10f20657a85b6ad9d54572d1b60a67b655896f36",
+  "latest_github_recheck": {
+    "revision": "7d29bad88dd6db78bbab76ab9295d2eab246b6e1",
+    "evidence": "reports/final_report/ch06_yang_mingjie/evidence/github_recheck.json",
+    "original_files_checked": 296,
+    "only_original_file_changed": [
+      "backend/run.py"
+    ],
+    "group_package_source_mismatch": {
+      "missing_files": 8,
+      "different_files": 12,
+      "package_executed": false
+    }
+  },
+  "checks": {
+    "original_application_test_and_requirements_files_match_archives": {
+      "cycle3": 42,
+      "master": 34
+    },
+    "junit_and_case_csv_match": {
+      "cycle3": 183,
+      "master": 150
+    },
+    "independent_verification_rerun": {
+      "summary": "183 passed, 17 warnings in 4.04s",
+      "run_id": "2e87f5cd-0564-4388-95d2-06ea63e5ed41",
+      "exit_code": 0,
+      "same_183_cases_as_primary_run": true,
+      "capture": "Actual local subprocess output in a browser console; separate from the primary 1.83-second run."
+    },
+    "chapter_prose_words": 2702,
+    "word_count_rule": "Whitespace-separated tokens containing an ASCII letter or digit; numbers and identifiers included. Overall count includes headings; section counts exclude all headings. Tables, image markup, punctuation-only tokens and references excluded. Approximate word-processor count.",
+    "section_prose_budgets_met_excluding_headings": {
+      "6.1": 403,
+      "6.2": 501,
+      "6.3": 601,
+      "6.4": 301,
+      "6.5": 504,
+      "6.6": 300
+    },
+    "chapter_structure": {
+      "third_level_headings": 12,
+      "table_groups": 5,
+      "figures": 2
+    },
+    "requirements": {
+      "baseline": "Original task pack 02 Table 2.2, explicitly assigned by task pack 07.",
+      "all_14_original_ids_labels_and_priorities_retained": true,
+      "original_R10": "GraphRAG enhancement; Should; Partial.",
+      "original_nfr_rows": 10,
+      "later_chapter2_nfr_rows_assessed_separately": 10,
+      "appendix_embedded_attachments_match_external_files": [
+        "test_case_inventory.csv",
+        "requirement_crosswalk.md"
+      ]
+    },
+    "pdf_a4_page_counts": {
+      "chapter_including_references": 9,
+      "manual": 10,
+      "appendix": 2
+    },
+    "pdf_text_nonempty_and_no_unresolved_table_placeholders": true,
+    "original_credential_values_not_found_in_report_text_or_evidence": true,
+    "visual_review": "All 21 final PDF pages inspected through rendered contact sheets; selected pages inspected at full size. No clipping or blank screenshots remained."
+  },
+  "limits": [
+    "Automated regression and document checks do not establish complete product acceptance or human usability acceptance.",
+    "Historical execution records remain attributed to ae7ab47. Latest master 7d29bad was compared by Git blob hashes; new group test-plan statuses and software ZIP are not new personal acceptance results.",
+    "Fresh offline browser load failed; the disclosed vendor fixture enabled the functional walkthrough.",
+    "Chinese requirement quotations use embedded 12pt SimSun; other body text uses 12pt Times New Roman. This font exception is disclosed.",
+    "Real novice manual trial, personal viva rehearsal, contribution/reference/disclosure checks and remote submission remain outstanding.",
+    "Product repairs, other contributors chapters, group assembly and final course upload are outside this personal scope."
+  ]
+}

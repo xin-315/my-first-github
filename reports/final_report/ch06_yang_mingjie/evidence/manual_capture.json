@@ -1,0 +1,11 @@
+{
+  "sourceCommit": "ae7ab47c6ff77b17f0ca62836b2c01e36da57187",
+  "purpose": "Replacement manual screenshot after the existing entrance animation settled.",
+  "waitAfterLoadMs": 1500,
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "resourceMode": "Exact existing ECharts 5.5.1 CDN fixture; all other external requests blocked.",
+  "externalModelRequestsSent": 0
+}

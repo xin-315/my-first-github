@@ -1,0 +1,11 @@
+{
+  "run_id": "2e87f5cd-0564-4388-95d2-06ea63e5ed41",
+  "started": "2026-10-29T18:42:44.072812+08:00",
+  "source_revision": "ae7ab47c6ff77b17f0ca62836b2c01e36da57187",
+  "capture_kind": "Screenshot of a live local subprocess console after execution. No OS terminal chrome is simulated.",
+  "viewport": {
+    "width": 1280,
+    "height": 900
+  },
+  "exit_code": 0
+}

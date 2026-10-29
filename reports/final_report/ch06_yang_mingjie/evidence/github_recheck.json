@@ -1,0 +1,317 @@
+{
+  "checked_date_asia_shanghai": "2026-10-29",
+  "repository": "https://github.com/xin-315/my-first-github",
+  "latest_master": "7d29bad88dd6db78bbab76ab9295d2eab246b6e1",
+  "available_branches_when_read": {
+    "master": "7d29bad88dd6db78bbab76ab9295d2eab246b6e1",
+    "submit-in-this-branch": "10f20657a85b6ad9d54572d1b60a67b655896f36"
+  },
+  "absent_branches_when_read": [
+    "sync/cycle3-final",
+    "develop",
+    "report/ch06-yang-mingjie"
+  ],
+  "report_test_baseline": "ae7ab47c6ff77b17f0ca62836b2c01e36da57187",
+  "comparison_to_report_baseline": {
+    "status": "ahead",
+    "ahead_commits": 37,
+    "behind_commits": 0,
+    "all_changed_paths": [
+      {
+        "path": "Chapter1_Introduction.docx",
+        "status": "added"
+      },
+      {
+        "path": "backend/run.py",
+        "status": "modified"
+      },
+      {
+        "path": "reports/figures/fig_trap_causal_chain.mmd",
+        "status": "added"
+      },
+      {
+        "path": "reports/figures/fig_trap_causal_chain.svg",
+        "status": "added"
+      },
+      {
+        "path": "reports/final_report/ch03_xie_weixin/appendix_B_RTM.md",
+        "status": "added"
+      },
+      {
+        "path": "reports/final_report/ch03_xie_weixin/chapter3_en.docx",
+        "status": "added"
+      },
+      {
+        "path": "reports/final_report/ch03_xie_weixin/figures/figure_3_1.png",
+        "status": "added"
+      },
+      {
+        "path": "reports/final_report/ch03_xie_weixin/figures/figure_3_1.svg",
+        "status": "added"
+      },
+      {
+        "path": "reports/final_report/ch03_xie_weixin/figures/figure_3_2.mmd",
+        "status": "added"
+      },
+      {
+        "path": "reports/final_report/ch03_xie_weixin/figures/figure_3_2.png",
+        "status": "added"
+      },
+      {
+        "path": "reports/final_report/ch03_xie_weixin/figures/figure_3_2.svg",
+        "status": "added"
+      },
+      {
+        "path": "reports/final_report/ch03_xie_weixin/outline.md",
+        "status": "added"
+      },
+      {
+        "path": "reports/final_report/ch03_xie_weixin/requirement_crosswalk.md",
+        "status": "added"
+      },
+      {
+        "path": "reports/final_report/ch03_xie_weixin/sources.md",
+        "status": "added"
+      },
+      {
+        "path": "reports/final_report/ch04_wang_sijian/figures/README.md",
+        "status": "added"
+      },
+      {
+        "path": "reports/final_report/ch04_wang_sijian/figures/fig_4_1_four_layer_architecture.mmd",
+        "status": "added"
+      },
+      {
+        "path": "reports/final_report/ch04_wang_sijian/figures/fig_4_1_four_layer_architecture.png",
+        "status": "added"
+      },
+      {
+        "path": "reports/final_report/ch04_wang_sijian/figures/fig_4_1_four_layer_architecture.svg",
+        "status": "added"
+      },
+      {
+        "path": "reports/final_report/ch04_wang_sijian/figures/fig_4_2_context_model.mmd",
+        "status": "added"
+      },
+      {
+        "path": "reports/final_report/ch04_wang_sijian/figures/fig_4_2_context_model.png",
+        "status": "added"
+      },
+      {
+        "path": "reports/final_report/ch04_wang_sijian/figures/fig_4_2_context_model.svg",
+        "status": "added"
+      },
+      {
+        "path": "reports/final_report/ch04_wang_sijian/figures/fig_4_3_class_diagram.mmd",
+        "status": "added"
+      },
+      {
+        "path": "reports/final_report/ch04_wang_sijian/figures/fig_4_3_class_diagram.png",
+        "status": "added"
+      },
+      {
+        "path": "reports/final_report/ch04_wang_sijian/figures/fig_4_3_class_diagram.svg",
+        "status": "added"
+      },
+      {
+        "path": "reports/final_report/ch04_wang_sijian/figures/fig_4_4_seq_diagnose.mmd",
+        "status": "added"
+      },
+      {
+        "path": "reports/final_report/ch04_wang_sijian/figures/fig_4_4_seq_diagnose.png",
+        "status": "added"
+      },
+      {
+        "path": "reports/final_report/ch04_wang_sijian/figures/fig_4_4_seq_diagnose.svg",
+        "status": "added"
+      },
+      {
+        "path": "reports/final_report/ch04_wang_sijian/outline.md",
+        "status": "added"
+      },
+      {
+        "path": "reports/final_report/ch04_wang_sijian/sources.md",
+        "status": "added"
+      },
+      {
+        "path": "reports/final_report/ch04_wang_sijian/table_4_1_adr.md",
+        "status": "added"
+      },
+      {
+        "path": "reports/final_report/ch04_wang_sijian/viva_defence.md",
+        "status": "added"
+      },
+      {
+        "path": "reports/final_report/ch05_dong_siqin/EDITOR_NOTES.md",
+        "status": "added"
+      },
+      {
+        "path": "reports/final_report/ch05_dong_siqin/group_messages.md",
+        "status": "added"
+      },
+      {
+        "path": "reports/final_report/ch05_liang_zixuan/jc2001-group5-poc.zip",
+        "status": "added"
+      },
+      {
+        "path": "reports/test_plan.md",
+        "status": "added"
+      },
+      {
+        "path": "reports/ui-design/01-wireframes.md",
+        "status": "added"
+      },
+      {
+        "path": "reports/ui-design/02-design-system.md",
+        "status": "added"
+      },
+      {
+        "path": "reports/ui-design/03-high-fidelity.md",
+        "status": "added"
+      },
+      {
+        "path": "reports/ui-design/04-interaction-spec.md",
+        "status": "added"
+      },
+      {
+        "path": "reports/ui-design/05-checklist.md",
+        "status": "added"
+      },
+      {
+        "path": "reports/ui-design/README.md",
+        "status": "added"
+      },
+      {
+        "path": "reports/ui-design/assets/.gitkeep",
+        "status": "added"
+      },
+      {
+        "path": "reports/ui-design/assets/page-analytics.png",
+        "status": "added"
+      },
+      {
+        "path": "reports/ui-design/assets/page-history.png",
+        "status": "added"
+      },
+      {
+        "path": "reports/ui-design/assets/page-practice.png",
+        "status": "added"
+      },
+      {
+        "path": "reports/ui-design/assets/page-tutor.png",
+        "status": "added"
+      },
+      {
+        "path": "reports/ui-design/full-design.pdf",
+        "status": "added"
+      },
+      {
+        "path": "reports/ui-design/prototype/layout-prototype.html",
+        "status": "added"
+      }
+    ],
+    "original_files_checked_against_current_git_blob_hashes": 296,
+    "original_files_changed": [
+      "backend/run.py"
+    ],
+    "application_test_dependency_files": 42,
+    "application_test_dependency_files_unchanged": 41,
+    "test_source_files_unchanged": 12,
+    "launcher_change": "backend/run.py adds the repository root to sys.path for direct script startup; app, frontend, tests and requirements are unchanged.",
+    "key_task_and_data_sources": [
+      {
+        "path": "reports/cycle3_task_packs/07-ch6-testing-yang-mingjie.md",
+        "git_blob_sha1": "9fb9dbc0e477b8365a150d46504f2845e42f2820",
+        "unchanged": true
+      },
+      {
+        "path": "reports/cycle3_task_packs/02-ch2-requirements-moscow-zhang-zijian.md",
+        "git_blob_sha1": "903978e20c3e98dfa4cc25b5ec4f33bc2cf41bcb",
+        "unchanged": true
+      },
+      {
+        "path": "reports/cycle3_master_plan.md",
+        "git_blob_sha1": "dbd0225f03c52821b1d52137c305c502efd05ffe",
+        "unchanged": true
+      },
+      {
+        "path": "docs/course/2026-27-GroupProjectDescription-and-Requirements.txt",
+        "git_blob_sha1": "a7739ae1e0d1d665700700b3b32c7c5d8a36446c",
+        "unchanged": true
+      },
+      {
+        "path": "reports/final_report/ch02_zhang_zijian/draft.md",
+        "git_blob_sha1": "b9ae55cd1ae201bfa126fb287d1019409c57b8a4",
+        "unchanged": true
+      },
+      {
+        "path": "graphrag（终）/final_systematic_report.csv",
+        "git_blob_sha1": "ef0468db6ce12e871900742c6f4ca59d72a3a382",
+        "unchanged": true
+      },
+      {
+        "path": "graphrag（终）/ragas_evaluator.py",
+        "git_blob_sha1": "b83c2c5010c0f9ccbbf91a0c6889f739cddca56a",
+        "unchanged": true
+      },
+      {
+        "path": "graphrag（终）/systematic_eval_engine.py",
+        "git_blob_sha1": "281bb54572286174b95cce69f62aff68ae2c43fe",
+        "unchanged": true
+      }
+    ]
+  },
+  "stored_mmlu_recalculation": {
+    "rows": 12,
+    "gains": 7,
+    "ties": 3,
+    "declines": 2,
+    "macro_delta_percentage_points": 0.6040053726529854,
+    "delivered_csv_identical_to_repository_source": true
+  },
+  "new_group_test_plan": {
+    "path": "reports/test_plan.md",
+    "git_blob_sha1": "ad96d27bd60df9570ccf70b642f03ffd63883c27",
+    "treatment": "Eight written scenarios with group-authored statuses; not added to the 183 existing pytest cases or treated as independent execution evidence."
+  },
+  "new_group_software_zip": {
+    "path": "reports/final_report/ch05_liang_zixuan/jc2001-group5-poc.zip",
+    "git_blob_sha1": "a433fcb45f8c5a7060b5eda02ff095b0e3235e90",
+    "download_matches_remote_blob_and_zip_integrity_passes": true,
+    "missing_current_application_test_dependency_files": [
+      "backend/app/models/auth.py",
+      "backend/app/models/report.py",
+      "backend/app/routers/auth.py",
+      "backend/app/routers/reports.py",
+      "backend/app/services/auth_service.py",
+      "backend/app/services/report_service.py",
+      "tests/test_auth.py",
+      "tests/test_reports.py"
+    ],
+    "different_current_application_test_dependency_files": [
+      "backend/app/data/seed_questions.py",
+      "backend/app/main.py",
+      "backend/app/models/__init__.py",
+      "backend/app/models/common.py",
+      "backend/app/routers/__init__.py",
+      "backend/app/services/__init__.py",
+      "backend/app/services/diagnostic_service.py",
+      "backend/run.py",
+      "frontend/app.js",
+      "frontend/index.html",
+      "frontend/style.css",
+      "tests/test_e2e_frontend.py"
+    ],
+    "older_comparison_revision": "10f20657a85b6ad9d54572d1b60a67b655896f36",
+    "older_comparison_files": 34,
+    "files_identical_to_older_comparison": 33,
+    "execution": "Not executed as a separate package. File inventory and byte identity are not package acceptance.",
+    "manual_scope": "Manual targets ae7ab47 source and matching current master API/frontend, not this different software ZIP. The package owner must align source and manual."
+  },
+  "limits": [
+    "Recorded 183-case results belong to ae7ab47; unchanged sources do not rewrite the historical run revision or duration.",
+    "The new group software ZIP differs from repository root source and omits auth/report modules and tests. Inventory inspection is not an executed acceptance test.",
+    "The task pack requires a develop-target PR, but develop is currently absent; the receiving branch must be confirmed by the group lead.",
+    "Real novice trial, personal rehearsal and remote submission remain unperformed."
+  ]
+}

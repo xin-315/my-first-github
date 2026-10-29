@@ -1,20 +1,26 @@
-# Chapter 6 & Appendix C Package — Testing and Evaluation
+# Chapter 6 delivery
 
-- **Author**: Yang Mingjie (杨明杰, `50106061`)
-- **Role**: Testing & Evaluation Lead / PoC User Manual Author
-- **Target Pages / Words**: 7–8 pages (~2,400–3,000 words; actual draft: ~2,850 words)
-- **Sections Covered**: `6.1`–`6.6` + `Appendix C` (`C.1 Test Case Inventory` & `C.2 PoC Quick-Start User Manual Summary`)
+Author: Mingjie Yang, 50106061. Primary existing software: sync/cycle3-final ae7ab47.
 
-## Deliverables in This Directory
+- outline.md: chapter structure and material inventory.
+- draft.md: complete English chapter, five numbered table groups and two figures.
+- chapter6_testing_evaluation.pdf: readable formatted chapter; final integration must retain the identified source version.
+- appendix_C_test_inventory.pdf and appendix_C.md: test evidence summary. Full electronic inventory: evidence/cycle3/test_case_inventory.csv, all 183 cases.
+- user_manual.pdf and user_manual.md: ten-page manual for the existing Cycle 3 application, including screenshots and actual limitations.
+- sources.md: Harvard references and primary-source provenance.
+- requirement_crosswalk.md: preserves original task wording and records conflicts with the current Ch2 draft.
+- peer_review.md: written review of architecture quality claims and Ch6.5 alignment.
+- viva_qa.md: five-minute explanation and questions in Chinese.
+- evidence/: actual run outputs, hashes, request observations and browser verification. Network guard is an audit helper, not a product feature.
 
-- `draft.md`: Complete English prose for Chapter 6 (`6.1 Testing Strategy` through `6.6 Threats to Validity`) and `Appendix C`, including:
-  - **Figure 6.1** (`figures/fig6_1_testing_pyramid.svg`): Four-tier automated testing pyramid (`9 files → 80 functions → 147 cases`, 0 external dependencies).
-  - **Table 6.1**: Inventory of all 9 `pytest` modules explaining how `@pytest.mark.parametrize` expands 80 functions (`78 + 2`) into 147 executed cases (`145 + 2`).
-  - **Table 6.2**: Six adversarial and robustness test groups (`A1`–`A6`) in `test_adversarial_backend.py` (25 functions, 523 LOC) and `test_empirical_stress.py`.
-  - **Figure 6.2** (`figures/fig6_2_mmlu_delta.svg`) & **Table 6.3**: MMLU 12-subject empirical evaluation ($n = 4,445$ items: **7 positive gains, 3 ties, 2 negative deltas** on `HS US History -1.00 pp` and `HS Physics -1.32 pp`) with domain-mechanism and statistical-significance analysis.
-  - **Table 6.4**: RAGAS evaluation framework design (`graphrag（终）/ragas_evaluator.py`) and transparent quota boundary disclosure.
-  - **Table 6.5**: Requirement-by-requirement verification matrix (`R01`–`R14` and `NFR-01`–`NFR-10`), honestly marking `R10` as **Partially Met (`⚠️`)**.
-  - **Section 6.6**: Six threats to validity across Internal, External (`E1`/`E2` persona provenance), Construct, and Statistical Conclusion dimensions.
-  - **Appendix C**: Detailed 9-module test inventory (`Table C.1`) and 5-minute PoC Quick-Start User Manual summary.
-- `evidence.md`: Exact CLI verification commands and repository file anchors.
-- `viva_qa.md`: Three oral-defense Q&As covering the `80 → 147` parameterised test relationship, negative MMLU deltas (`Physics`/`US History`), and `R10` / RAGAS honesty.
+The report does not assert RAGAS scores, novice acceptance, complete offline operation, secure authentication or live learner telemetry. Those claims are not supported by the current software. Review and resolve the listed integration issues with the report lead before the course submission. Academic authorship and AI-use disclosure remain the student's responsibility under the official brief.
+
+No source code is embedded in the report PDF. Browser screenshots show the existing application. Credential values, the application's existing sensitive configuration, installed dependencies and full software archives are excluded from this report-only package.
+
+The chapter has eight main pages plus one reference page. It uses A4, one-inch margins, 12-point Times New Roman and 18-point line spacing. Original Chinese requirement labels use an embedded 12-point SimSun fallback so that they can be quoted verbatim in Table 6.5. Third-level headings are bold run-in headings in the PDF and separate Markdown headings in the editable draft. Figure 6.2 shares rows with Table 6.3; a separate SVG is supplied. English label translations and the later Ch2 assessment are in requirement_crosswalk.md, also embedded in the appendix. Tables C.1 and C.2 formally assess all ten assigned NFRs and all ten later-draft quality requirements. The review is also placed under the required sibling reviews/ directory.
+
+See acceptance_checklist.md and the root PERSONAL_TASK_AUDIT_zh.md for this contributor's completed files and remaining personal actions. The live-run image records a real local test subprocess, with separate verification logs. Human manual acceptance and viva rehearsal remain unperformed. Team software repair, other chapters, whole-report assembly and course submission are outside this personal contribution.
+
+Live GitHub recheck on 29 October 2026: latest master is 7d29bad. Among 296 original files, only backend/run.py changed; the test sources, API, frontend, requirements, assigned task packs and MMLU data are unchanged. Historical execution records remain attributed to ae7ab47. The former sync/cycle3-final branch has been removed and develop is absent. Use the updated root SUBMISSION_GUIDE_zh.md for personal submission; evidence/github_recheck.json records the source comparison. The manual's download instructions now use the available master branch. Newly added group test-plan statuses and the group software ZIP have not been counted as personal execution evidence.
+
+The group ZIP was inspected by file hashes and archive inventory: eight current auth/report files are missing and twelve other application/test files differ. It was not executed. The manual targets the tested repository source and explicitly records this package mismatch; source/package alignment remains with the software package owner.
