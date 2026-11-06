@@ -23,6 +23,8 @@ The project proposal schedules GraphRAG, dynamic quiz, and verification mileston
 
 ## 3. Individual Assignments
 
+> **Per-member task packs:** the table below is the single source of truth. A dedicated, copyable task pack for each member lives in [`reports/cycle4_task_packs/`](cycle4_task_packs/), with one file per owner and a link to that member's personal folder under `reports/final_report/`. If a pack and this document disagree, this document wins.
+
 | Member | Responsibility | Required evidence |
 |---|---|---|
 | **Siqin Dong (50106060)** | Define the question-parsing and misconception-diagnosis slice; document its input, output, and failure cases. Coordinate with Yusai Xi on quiz content and the mastery-dashboard data contract. | A short design note, one working vertical slice or an evidenced blocker, tests for representative valid and invalid inputs, and a documented interface/data contract with sample cases. |
