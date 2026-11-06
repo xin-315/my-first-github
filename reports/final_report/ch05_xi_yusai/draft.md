@@ -1,67 +1,87 @@
-## 5.5 Graphical User Interface
+# Chapter 5.5 Implementation: Graphical User Interface
 
-### 5.5.1 Pedagogical Design Principles (`P1`–`P3`)
+## 5.5.1 Design Philosophy of Cyber Obsidian Console System
 
-In educational software engineering, visual polish is meaningless unless every interface decision serves a concrete cognitive objective. When designing the StudyGraph Single-Page Application (`frontend/index.html`, `frontend/app.js`, and `frontend/styles.css`), we established three pedagogical design principles that directly counter the failure modes of existing flashcard and chatbot tools identified in Chapter 1:
+### 5.5.1.1 Console-style interface positioning for STEM learning scenarios
+The graphical user interface of StudyGraph adopts a "Cyber Obsidian" console-style design language, which is tailored for undergraduate STEM students and professional exam learners. Different from consumer-oriented learning products with rich decorative elements, the interface prioritises operational efficiency, information density and traceability of learning evidence, which matches the usage habits of target users who are familiar with developer tools and professional software (Sommerville, 2016).
 
-| Principle ID & Name | Pedagogical Objective | Concrete Visual & DOM Realisation (`frontend/`) |
-| :--- | :--- | :--- |
-| **`P1` · Answer Never Spoils Prior to Cognitive Commitment** | Prevent passive solution reading ("Answer Spoiling", critiqued in `Section 1.3`) so learners must commit to an option before seeing any explanation. | The correct option badge and statutory/theoretical `explanation` remain strictly unrendered in the DOM until `POST /api/diagnose` returns; even on a wrong attempt, the **Reasoning Accordion** prompts Socratic reflection (`socratic_prompt`) before the full key is studied. |
-| **`P2` · Progressive Disclosure of Five-Layer Diagnosis** | Prevent cognitive overload when a student misses a dense statutory or quantitative item. | Instead of dumping a wall of text, the **Trap Drawer** structures feedback into five distinct visual tiers (Selected Option Conflict → Named Misconception Badge → Conceptual Fault Analysis → Missing Prerequisite Tag → Interactive Concept Subgraph). |
-| **`P3` · Diagnostic Signal Over Decorative Chrome** | Ensure exam candidates can pinpoint *why* they failed and *which dimension* is weak within 5 seconds (`Persona A`, `NFR-05`). | High-contrast semantic colour tokens (Emerald `#10B981` for verified mastery, Amber `#F59E0B` for specific trap hits, Rose `#F43F5E` for boundary alerts) and a 5-axis radar polygon occupy the primary visual hierarchy; zero decorative animations block user clicks. |
+The global layout follows a classic workspace split architecture. The interface consists of a fixed left sidebar for primary navigation, a top status bar for page context and global controls, and a main content area for business modules. This structure is implemented in `frontend/index.html` with Flexbox layout, ensuring stable visual weight and consistent switching experience across all functional pages.
 
-Notably, Principle **`P1`** is the direct UI-layer enforcement of our Chapter 1 thesis: whereas general-purpose LLM chat interfaces immediately output the worked solution and short-circuit retrieval practice, StudyGraph withholds explanation disclosure until the learner actively selects an option (`A`–`D`) and confronts the specific trap associated with that choice.
+### 5.5.1.2 Dual-theme colour variable system and implementation logic
+To satisfy the accessibility requirement NFR-03 and adapt to different usage scenarios, the system supports both light and dark themes. The colour system is built on CSS custom properties defined globally in `frontend/style.css`, and switched by modifying the `data-theme` attribute on the root HTML element. This implementation allows theme switching to take effect globally without page reload, and reduces the maintenance cost of dual-theme styles (StudyGraph Group 5, 2026a).
 
-### 5.5.2 Zero-Build Interface Architecture and Design Iteration Velocity
+The colour specification includes three levels of neutral colours for background, text and borders, a primary brand colour for interactive highlights, and four functional colours for status feedback. All colour combinations meet the WCAG AA contrast standard, which is a core part of the accessibility design framework.
 
-As justified from a systems perspective in `Section 4.6` (`AD-2`) and `Section 5.1`, the frontend uses vanilla HTML5, CSS3 Custom Properties (`frontend/styles.css`), and native ES6+ JavaScript (`frontend/app.js`) without Webpack, Vite, or Tailwind compilation. From a UI/UX engineering perspective, this zero-build architecture was not a performance gimmick—**it was the primary driver of our design iteration velocity**:
+### 5.5.1.3 8px grid system and unified typography specification
+All spacing, padding and component dimensions follow the 8px grid principle, meaning all size values are multiples of 8px. This rule ensures visual consistency across the entire product, reduces arbitrary decision-making during front-end development, and improves the efficiency of design-development collaboration.
 
-1. **Zero Compilation Latency (`Edit → Refresh`)**: Modifying a CSS custom property or drawer transition in `frontend/styles.css` takes effect on browser reload in `< 50 ms`, eliminating the `Edit → Transpile → Bundle → Hot-Reload` cycle of heavy Node.js toolchains. This allowed us to refine the Cyber Obsidian / Academic Daylight dual-theme token hierarchy across multiple team review rounds within a two-week sprint.
-2. **Centralised State Transitions (`frontend/app.js`)**: Rather than scattering UI state across dozens of React component files and hooks, `frontend/app.js` maintains a single, inspectable client state object (`currentQuestion`, `selectedOption`, `lastDiagnosis`, `activeLang`, `activeTheme`), directly implementing the five-state UML behavioural state machine specified in `Figure 3.2` (`Section 3.4`).
-3. **Custom Semantic Visual Language**: Writing custom CSS design tokens rather than relying on default Bootstrap or Tailwind utility classes ensured that our five-layer Trap Drawer, prerequisite pill badges, and 1-hop SVG knowledge-graph canvas match the exact structural hierarchy of `TrapDetail` and `GraphData`.
+For typography, the system uses system sans-serif fonts for body content to ensure cross-platform readability, and monospaced fonts for data labels, evidence sources and code-related content to strengthen the console-style professional atmosphere. A four-level typography hierarchy is defined, from page titles to auxiliary captions, to ensure a clear information hierarchy.
 
-### 5.5.3 The Five-Layer Trap Drawer: Core Diagnostic Interaction (`Figure 5.3`)
+## 5.5.2 Core Component Interaction Design
 
-The centrepiece of the StudyGraph interface is the slide-out **Trap Drawer**, which activates whenever `POST /api/diagnose` returns `correct: false`. Table 5.5a maps each of the five visual layers in the Trap Drawer to its exact Pydantic schema field (`backend/app/models/quiz.py`, as defined in `Section 5.3`) and its pedagogical function.
+### 5.5.2.1 Global light and dark theme switching mechanism
+The theme toggle button is placed in the top status bar, which is a globally visible entry. The switching logic is implemented in `frontend/app.js`: clicking the button modifies the `data-theme` attribute of the root element, and all style variables are replaced synchronously through the CSS cascade mechanism. The interaction follows the principle of immediate feedback: the visual style updates instantly after clicking, and no additional confirmation is required.
 
-**Table 5.5a: Mapping between the five visual layers of the Trap Drawer (`frontend/app.js`) and the backend `DiagnoseResponse` / `TrapDetail` schema.**
+### 5.5.2.2 Collapsible hint and explanation accordion component
+In the diagnostic practice page, hints and full explanations are hidden by default, and are displayed only when the user actively clicks the corresponding button. This design strictly aligns with requirement FR-09: viewing a hint does not count as an attempt, and the full explanation is only revealed after the user submits an answer and requests it (StudyGraph Group 5, 2026b).
 
-| Visual Layer | UI Component & Visual Cue | Bound Backend Schema Field | Pedagogical Intent |
-| :-: | :--- | :--- | :--- |
-| **Layer 1** | **Attempt Verdict Header** (`✘ Option A Selected — Misconception Detected`) | `DiagnoseResponse.selected_option` & `correct` (`false`) | Establish immediate, unambiguous cognitive conflict on the specific option clicked. |
-| **Layer 2** | **Named Fallacy Pill Badge** (e.g., *Conflating Limitation Period with Preclusive Period*) | `TrapDetail.title` / `TrapDetail.title_en` | Give the learner's mistake a memorable, canonical diagnostic label rather than a generic "Wrong". |
-| **Layer 3** | **Conceptual Conflict Breakdown Card** | `TrapDetail.desc` / `TrapDetail.desc_en` | Explain *why* the chosen distractor is seductive and *where* its rule conflicts with the question stem. |
-| **Layer 4** | **Actionable Prerequisite & Dimension Tag** (e.g., `Prereq: Civil Code Art. 152 vs. Art. 188` · `Hit: Boundary`) | `TrapDetail.prereq` / `prereq_en` & `TrapDetail.radar_hit` | Translate "You got this wrong" into an actionable remediation target ("Go review this exact prerequisite"). |
-| **Layer 5** | **1-Hop Knowledge-Graph Subgraph + Socratic Reasoning Accordion** | `DiagnoseResponse.graph` (`nodes`, `edges`), `socratic_prompt`, & `QuizItem.explanation` | Visually contrast the `core`, `prereq`, and `trap` nodes (`GraphData`), prompt self-reflection, and provide the authoritative statutory/theorem reference. |
+The component uses an accordion-style expansion and collapse interaction, with a clear arrow indicator for the open/close state. The interaction logic is controlled by front-end JavaScript, which ensures that the answer content is not exposed in advance, protecting the fairness of the diagnostic process.
 
-**Why a Slide-Out Drawer Instead of a Centred Modal Dialog?**
-Early in our UI prototyping, we displayed diagnostic feedback inside a centred modal overlay (`position: fixed` with a darkened backdrop). Internal walkthroughs immediately revealed a critical usability flaw: **a modal covers the question stem and the four option cards (`A`–`D`)**, forcing the student to close the modal repeatedly just to re-read the wording of the option they got wrong. Replacing the modal with a **right-hand slide-out Trap Drawer (`42%` viewport width)** keeps the original question stem and all four options fully visible on the left (`58%` viewport width). Students can visually cross-reference the stem's boundary conditions against Layer 3 (`TrapDetail.desc`) and Layer 5 (`GraphData` nodes) side by side.
+### 5.5.2.3 Split-Screen Trap Drawer architecture
+The core diagnostic interaction is built on a five-layer Trap Drawer architecture, which uses a 60/40 split-screen layout instead of a traditional modal dialog.
 
-**Figure 5.3: StudyGraph Question Arena and Five-Layer Trap Drawer upon selecting Distractor A on `law_1` (captured from repository baseline).**
-(Source: Live browser capture of `http://127.0.0.1:8000` running `backend/app/main.py`.)
+![Figure 5.3 Split-Screen Trap Drawer Architecture](assets/fig5-3-trap-drawer.png)
+*Figure 5.3: StudyGraph Question Arena and Five-Layer Trap Drawer upon selecting Distractor A. Source: Live browser capture of repository baseline.*
 
-![Figure 5.3](figures/fig5_3_trap_drawer.svg)
+As shown in Figure 5.3, the left workspace retains the full question stem and options, while the right drawer progressively discloses structured misconception diagnostics across five layers:
+1. Selected option and misconception badge
+2. Cognitive mechanism description
+3. Prerequisite concept anchor
+4. Local knowledge subgraph
+5. Remedies and Socratic follow-up prompts
 
-### 5.5.4 Five-Axis Competency Radar and Zero-Attempt Empty State (`Figure 5.4`)
+This design is justified by cognitive load theory (Sweller, 1988): a centered modal dialog would obscure the four answer options and force working-memory reload, while the side-by-side layout enables direct visual comparison between the selected distractor and the correct standard. This structure aligns with requirement FR-08 by making all diagnostic evidence and source information fully traceable.
 
-Clicking the **Competency Analytics** view (`GET /api/reports/summary` and `GET /api/reports/trend`) transitions the workspace to the diagnostic dashboard (`Figure 5.4`), which combines two complementary visualisations:
+### 5.5.2.4 Five-axis competency radar integration
+The competency analytics view is built on ECharts, which visualises user mastery across five dimensions: conceptual recall, prerequisite reasoning, misconception recognition, cross-topic reasoning and procedural accuracy. This component corresponds to functional requirement FR-04.
 
-1. **Five-Axis Competency Radar Polygon**: Plots the student's live score (`[0, 100]`) across the five cognitive dimensions defined in `R04` (`recall`, `boundary`, `trapDefense`, `synthesis`, and `precision`). Whenever a student triggers a distractor trap whose `radar_hit` is `"boundary"`, the corresponding radar vertex visibly contracts, turning abstract accuracy percentages into a spatial weakness profile.
-2. **KPI Summary Cards, Provenance Badge, and Zero-Attempt State**: Above the radar, four KPI cards report `Total Questions (12)`, `Session Attempts`, `Session Accuracy (%)`, and `Active Data Source`. Crucially, when `session_attempts == 0` (such as on initial startup or immediately after clicking **Reset Session Telemetry**, `POST /api/reports/reset`), the UI displays an explicit **`Seed Baseline (0 Live Attempts)`** badge (`data_source: "seed_baseline"`, verified in `tests/test_reports.py`). As soon as the learner submits their first answer, the badge transitions to **`Live Session Telemetry`** (`data_source: "session_telemetry"`) and populates the trap-hit distribution bars (`trap_distribution`).
+Clicking the Competency Analytics view transitions the workspace to the diagnostic dashboard, which combines two complementary visualisations: the five-dimension mastery radar and aggregate learning statistics cards. The dashboard implements graceful degradation: when no learning records exist, a zero-attempt empty state is displayed with guidance to start practice, instead of showing an invalid 0% score. This behaviour aligns with requirement NFR-07.
 
-**Figure 5.4: StudyGraph Five-Axis Competency Radar, Weakness Remediation Cards, and Provenance Telemetry View.**
-(Source: Live browser capture of `/api/reports/summary` and `/api/reports/trend` state in `frontend/app.js`.)
+![Figure 5.5 Five-Dimension Competency Radar](assets/fig5-5-radar.png)
+*Figure 5.5: Five-axis competency radar chart showing mastery dimensions and attempt-based evidence labels.*
 
-![Figure 5.4](figures/fig5_4_main_console.svg)
+Dimensions with fewer than two valid attempts are clearly labelled "Insufficient evidence" instead of showing an inaccurate percentage. Each dimension displays both the accuracy rate and the number of attempts, so that users can correctly understand the credibility of the data.
 
-### 5.5.5 Bilingual Switching, Dual-Theme Tokens, and Graceful Degradation
+### 5.5.2.5 Sandbox comparison state component
+The sandbox comparison component is used in the answer feedback scenario to visually present the state difference before and after answering, and to compare the user's reasoning path with the standard evidence basis. This component strengthens the traceability of the diagnostic process, allowing users to clearly perceive the basis for wrong-answer diagnosis.
 
-To satisfy non-functional requirements `NFR-04`, `NFR-06`, and `NFR-08` (`R07`, `R08`), the interface implements three resilience mechanisms summarised in Table 5.5b:
+## 5.5.3 Responsive Design and Accessibility Review
 
-**Table 5.5b: Frontend implementation and verification of bilingual (`R07`), dual-theme (`R08`), and fault-tolerant degradation (`NFR-04`) capabilities.**
+### 5.5.3.1 Desktop-first responsive adaptation rules
+The interface follows a desktop-first design strategy, which aligns with the main usage scenario of students learning on desktop computers. At the same time, basic responsive adaptation is provided to ensure that core functions are available on tablet and mobile screens, meeting requirement NFR-08.
 
-| Capability | Frontend Implementation Mechanism (`frontend/`) | Verification & Honest Scope Boundary |
-| :--- | :--- | :--- |
-| **Runtime Bilingual Toggle (`zh` / `en`, `R07`)** | `I18N` dictionary in `frontend/app.js` + bilingual schema fields (`stem_en`, `options_en`, `title_en`, `desc_en`, `prereq_en`, `socratic_prompt_en`) re-bound in `< 16 ms` without page reload. | Verified by `tests/test_e2e_frontend.py` and `tests/test_quiz.py`. Both UI chrome and all 12 curated questions (`36 traps`) carry English and Chinese fields. |
-| **Dual-Theme Ergonomics (`Dark` / `Light`, `R08`)** | CSS Custom Properties on `:root` (`Cyber Obsidian` dark: `#0B0F19` bg / `#F8FAFC` text; `[data-theme="light"]` `Academic Daylight`: `#F8FAFC` bg / `#0F172A` text) persisted in `localStorage`. | Luminance contrast ratios (`17.4:1` dark, `16.8:1` light) exceed WCAG 2.1 Level AA (`4.5:1` minimum, `NFR-06`). |
-| **Graceful API Error & Offline Degradation (`NFR-04`)** | Centralised `apiFetch()` wrapper in `frontend/app.js` catches HTTP `401`/`404`/`422`/`500` and network disconnects, rendering a non-blocking toast notification rather than an unhandled blank screen. | Verified by `tests/test_adversarial_backend.py` and manual server-stop fault injection. |
+On narrow screens, the left sidebar is collapsed into a top menu, and the Trap Drawer switches from side-by-side split-screen to vertical stacked layout, ensuring that text is not obscured and main interactive controls are clickable.
+
+### 5.5.3.2 WCAG-compliant accessibility design principles
+All interface designs follow core accessibility principles to meet NFR-03. First, all status feedback uses a dual representation of icon plus text, rather than relying solely on colour to convey correct or wrong results. Second, all text and background colour combinations meet WCAG AA contrast standards to ensure readability for users with visual impairment. Third, all interactive controls have clear hover, active and disabled states to provide clear operational feedback.
+
+### 5.5.3.3 UI restoration acceptance and review workflow
+To ensure that the final front-end implementation is consistent with the design specification, a complete UI restoration acceptance mechanism is established. The acceptance checklist covers six dimensions: layout, colour, components, spacing, typography and interaction. Each item is checked one by one during the acceptance phase to ensure the quality of the final delivered interface.
+
+## 5.5.4 Student Console Overview and Dashboard Integration
+
+![Figure 5.4 Student Console Overview](assets/fig5-4-console-overview.png)
+*Figure 5.4: Panoramic view of the student-side main console and analytics dashboard.*
+
+The student console provides a unified workspace for diagnostic practice, competency analysis and review history. The left navigation maps functional modules to specific front-end views, while the main content area dynamically loads question items, feedback components and data visualisations without disrupting the user’s current task context.
+
+The analytics dashboard view is reachable through the left sidebar and is supported by backend endpoints such as `GET /api/reports/summary` and `GET /api/reports/trend`. These endpoints provide the aggregated data required for the five-axis radar and summary cards, ensuring that the visual layer remains aligned with the backend data model.
+
+---
+
+## References
+Sweller, J. (1988). Cognitive load during problem solving: Effects on learning. *Cognitive Science*, 12(2), 257-285.
+Sommerville, I. (2016). *Software Engineering* (10th ed.). Pearson Education.
+StudyGraph Group 5. (2026a). UI Design System Specification [Repository file]. `reports/ui-design/02-design-system.md`
+StudyGraph Group 5. (2026b). Requirements Traceability Matrix [Repository file]. `reports/add-use-cases-and-rtm-227/rtm.md`
+University of Aberdeen. (2026). JC2001 Introduction to Software Engineering Course Brief.
