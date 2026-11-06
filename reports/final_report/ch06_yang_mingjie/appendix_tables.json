@@ -1,0 +1,146 @@
+{
+  "original_nfr": {
+    "caption": "Table C.1 Assigned non-functional requirements",
+    "header": [
+      "ID",
+      "Assigned target",
+      "Result and evidence"
+    ],
+    "rows": [
+      [
+        "NFR-U1",
+        "Unaided answer; <=3 clicks",
+        "Partial; tester only"
+      ],
+      [
+        "NFR-U2",
+        "zh/en; themes; AA >=4.5:1",
+        "Partial; contrast unverified"
+      ],
+      [
+        "NFR-P1",
+        "Local API P95 <100 ms",
+        "Met; every route <1.5 ms"
+      ],
+      [
+        "NFR-P2",
+        "Local offline FCP <100 ms",
+        "Unmet; fixture FCP 392 ms"
+      ],
+      [
+        "NFR-R1",
+        "No database, model or cloud",
+        "Unmet; external ECharts"
+      ],
+      [
+        "NFR-R2",
+        "Classified errors; no 500",
+        "Partial; 200 fallbacks"
+      ],
+      [
+        "NFR-S1",
+        "Pydantic; no SQL/command joins",
+        "Partial; typed checks only"
+      ],
+      [
+        "NFR-S2",
+        "No plain credentials in repo/ZIP",
+        "Unmet in original source"
+      ],
+      [
+        "NFR-M1",
+        "Layered; HTTP-free service tests",
+        "Partial; structure inspected"
+      ],
+      [
+        "NFR-M2",
+        ">=140 cases; all pass; <10 s",
+        "Met; 183 passed / 1.83 s"
+      ]
+    ],
+    "source": "Source: task pack 02, Table 2.3; recorded evidence, not invented acceptance.",
+    "widths": [
+      0.17,
+      0.43,
+      0.4
+    ]
+  },
+  "current_nfr": {
+    "caption": "Supplementary current Chapter 2 quality requirement mapping",
+    "header": [
+      "ID",
+      "Current Chapter 2 quality attribute",
+      "Result",
+      "Evidence"
+    ],
+    "rows": [
+      [
+        "NFR-01",
+        "Diagnostic API Response Latency",
+        "Partial",
+        "N01"
+      ],
+      [
+        "NFR-02",
+        "Application Cold-Start Time",
+        "Unverified",
+        "N02"
+      ],
+      [
+        "NFR-03",
+        "Zero-Network Offline Determinism",
+        "Unmet",
+        "N03"
+      ],
+      [
+        "NFR-04",
+        "Graceful Input Validation & Fault Isolation",
+        "Partial",
+        "N04"
+      ],
+      [
+        "NFR-05",
+        "Diagnostic Interaction Efficiency (3-Click Rule)",
+        "Partial",
+        "N05"
+      ],
+      [
+        "NFR-06",
+        "Visual Contrast & Dual-Theme Readability",
+        "Unverified",
+        "N06"
+      ],
+      [
+        "NFR-07",
+        "Cross-Language Naming Contract (CamelModel)",
+        "Partial",
+        "N07"
+      ],
+      [
+        "NFR-08",
+        "Zero-Build Frontend & Data-Code Separation",
+        "Partial",
+        "N08"
+      ],
+      [
+        "NFR-09",
+        "Credential Hygiene & Zero-Secret Repository",
+        "Unmet",
+        "N09"
+      ],
+      [
+        "NFR-10",
+        "Anti-Hallucination & Provenance Transparency",
+        "Unmet",
+        "N10"
+      ]
+    ],
+    "source": "Source: current Ch2 Table 2.2 and evidence/evidence_ledger.md. The separate crosswalk evaluates all original NFR-U1 to NFR-M2 identifiers.",
+    "widths": [
+      0.16,
+      0.52,
+      0.2,
+      0.12
+    ]
+  }
+}

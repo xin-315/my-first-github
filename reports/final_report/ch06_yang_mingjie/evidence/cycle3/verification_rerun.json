@@ -1,0 +1,10 @@
+{
+  "status": "finished",
+  "run_id": "2e87f5cd-0564-4388-95d2-06ea63e5ed41",
+  "exit_code": 0,
+  "started": "2026-10-29T18:42:44.072812+08:00",
+  "command": "python -m pytest tests/ -q -p no:cacheprovider -p network_guard --junitxml=verification_results.xml",
+  "source_revision": "ae7ab47c6ff77b17f0ca62836b2c01e36da57187",
+  "purpose": "Independent verification rerun, captured live in a local browser console; separate from the primary 1.83-second run.",
+  "output_sha256": "778131a344a42f8538e67406cce18a58505653974b0c531e55dfd352e3887ae1"
+}
