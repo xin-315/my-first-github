@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "description": "Deliberately broken pack: every entry violates at least one data rule.",
+  "questions": [
+    {
+      "id": "demo_bad_1",
+      "subject": "astrology",
+      "stem": "Which period applies?",
+      "answer": "B",
+      "explanation": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "three years",
+          "trap_id": "trap_missing"
+        },
+        {
+          "key": "B",
+          "text": "one year",
+          "is_correct": true
+        },
+        {
+          "key": "C",
+          "text": "five years"
+        }
+      ],
+      "traps": {
+        "trap_1": {
+          "title": "T1",
+          "desc": "D1",
+          "prereq": "P1",
+          "radar_hit": "trap_defense"
+        }
+      }
+    },
+    {
+      "id": "demo_bad_1",
+      "subject": "law",
+      "options": [
+        {
+          "key": "A",
+          "text": "a",
+          "trap_id": "trap_1"
+        },
+        {
+          "key": "B",
+          "text": "b",
+          "is_correct": true
+        },
+        {
+          "key": "C",
+          "text": "c",
+          "trap_id": "trap_2"
+        },
+        {
+          "key": "D",
+          "text": "d",
+          "trap_id": "trap_3"
+        }
+      ],
+      "traps": {}
+    }
+  ]
+}

@@ -11,7 +11,7 @@ import httpx
 from backend.app.config import settings
 from backend.app.models.quiz import QuizItem, TrapDetail, OptionItem
 from backend.app.models.diagnose import DiagnoseRequest, DiagnoseResponse
-from backend.app.services.quiz_service import quiz_service
+from backend.app.services.quiz_service import QuizService, quiz_service
 
 logger = logging.getLogger("diagnostic_engine")
 
@@ -19,8 +19,15 @@ logger = logging.getLogger("diagnostic_engine")
 class DiagnosticService:
     """Diagnostic Service implementing dual-mode cognitive evaluation."""
 
-    def __init__(self, timeout: float = 4.0):
+    def __init__(self, timeout: float = 4.0, quiz_repo: Optional[QuizService] = None):
+        """Create the engine.
+
+        ``quiz_repo`` lets a caller diagnose an arbitrary parsed question pack without
+        touching the process-wide seed repository (Cycle 4 vertical slice). It defaults to the
+        global singleton, so existing call sites keep their behaviour.
+        """
         self.timeout = timeout
+        self._quiz_repo: QuizService = quiz_repo if quiz_repo is not None else quiz_service
 
     async def _call_dashscope_qwen(
         self,
@@ -93,7 +100,7 @@ class DiagnosticService:
         try:
             # 1. Resolve question from repository
             q_id = req.question_id
-            question = quiz_service.get_question_by_id(q_id)
+            question = self._quiz_repo.get_question_by_id(q_id)
             
             # If not found by given ID, attempt fallback to first question
             if not question:
