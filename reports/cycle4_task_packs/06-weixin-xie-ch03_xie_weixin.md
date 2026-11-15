@@ -4,7 +4,7 @@
 **Owner:** Weixin Xie (50106034)
 **Personal folder:** `reports/final_report/ch03_xie_weixin/`
 **Source of truth:** [`reports/cycle4_task_assignment_2026-11-03.md`](../cycle4_task_assignment_2026-11-03.md)
-**Status:** `NOT STARTED` (update to `IN PROGRESS`, `UNDERSTOOD` or `NEEDS REVIEW` as work proceeds)
+**Status:** `IN PROGRESS` (update to `IN PROGRESS`, `UNDERSTOOD` or `NEEDS REVIEW` as work proceeds)
 
 This pack is a per-member extract of the single Cycle 4 assignment table. It does not replace the master document; if the two disagree, the master document wins.
 
@@ -52,7 +52,9 @@ Record one of:
 
 | Date | Change / evidence | Artefact or PR | Status |
 |---|---|---|---|
-| - | - | - | `NOT STARTED` |
+| 2026-11-09 | Traceability, evaluation and claims review prepared; 232 regression tests passed and 68 option checks passed; explanation checkpoint pending | [Cycle 4 review](../final_report/ch03_xie_weixin/cycle4/README.md) | `IN PROGRESS` |
+
+| 2026-11-15 | Verification rerun: 232 tests passed, 17 warnings, 68 option checks passed; checkpoint materials prepared; explanation checkpoint pending | [15 November checkpoint](../final_report/ch03_xie_weixin/cycle4/checkpoint_2026-11-15.md) | `IN PROGRESS` |
 
 ## 7. Notes
 

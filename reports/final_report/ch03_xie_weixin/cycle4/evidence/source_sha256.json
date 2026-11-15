@@ -1,0 +1,17 @@
+{
+  "baseline_commit": "5687727e903311a081896208e800e1d0f6c322cf",
+  "sha256": {
+    "backend/app/data/seed_questions.py": "d6d018217b750931157dd68263b964d7891a7c1f00824416912f07249ae4cf44",
+    "backend/app/services/diagnostic_service.py": "f6a92daf5d52ab60c41068650ca286484207bf8766471f685d43e98797484da6",
+    "backend/app/services/question_parser.py": "2f38c4ca99ac16e639df3dc162c47867f38d4697b8a15c7fb210412a7534a1be",
+    "backend/app/services/report_service.py": "201307724e6ac1a51a57532d04ad22f63ed367ca6a07a8d5b2da31ed9349fccc",
+    "backend/app/models/quiz.py": "4e88b89073d5e2c156a0fdbf96e9e1facd9be74dd7718be8034f6fd97bd6bff8",
+    "backend/app/models/diagnose.py": "a2a16fee3e994b1e4bf6bc5fbb0f3b4fa855ca64e03a962aed84289cd13c42e2",
+    "backend/app/routers/quiz.py": "369a00bdccafd3b0e57b8fd10e322cfb898d83dc4cc8849268b2e87e86dd8f40",
+    "backend/app/routers/diagnose.py": "85c49750b13c3c93a6b4ed78e9f1c005d9f8a76ee843d6ef1dd78baabf122b38",
+    "backend/app/main.py": "b2bca5202afe15dc002bfc835e8b09fe618c7df5d5d98a32c588d881737c2871",
+    "scripts/audit_hallucination_l1_l3.py": "e8fe767607cb07a7d6b3f841525baa69f5439cf213a2be5d6e5dbe4503b1566b",
+    "scripts/audit_online_baseline.py": "96acb3f3a89e8757856a865b0e3e3d951f8e1f82fabe66a9152dcd1978bdf6a4",
+    "frontend/index.html": "e205256edd5880959aaf39f2b03fe991d174c1a01c10242db7bf8bee7cec16b3"
+  }
+}

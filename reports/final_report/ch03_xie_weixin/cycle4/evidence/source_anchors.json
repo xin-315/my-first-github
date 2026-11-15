@@ -1,0 +1,76 @@
+[
+  {
+    "file": "backend/app/routers/quiz.py",
+    "pattern": "response_model=List[QuizItem]",
+    "lines": [
+      13
+    ]
+  },
+  {
+    "file": "backend/app/services/diagnostic_service.py",
+    "pattern": "if settings.has_api_key and req.include_socratic:",
+    "lines": [
+      206
+    ]
+  },
+  {
+    "file": "backend/app/services/diagnostic_service.py",
+    "pattern": "if not question:",
+    "lines": [
+      106
+    ]
+  },
+  {
+    "file": "backend/app/services/report_service.py",
+    "pattern": "attempt_count=18,",
+    "lines": [
+      122
+    ]
+  },
+  {
+    "file": "backend/app/services/report_service.py",
+    "pattern": "data_source=\"session_telemetry\",",
+    "lines": [
+      129,
+      149,
+      195,
+      212
+    ]
+  },
+  {
+    "file": "scripts/audit_hallucination_l1_l3.py",
+    "pattern": "\"human_verdict\": \"TRUE\"",
+    "lines": [
+      78,
+      105
+    ]
+  },
+  {
+    "file": "scripts/audit_hallucination_l1_l3.py",
+    "pattern": "\"human_verdict\": \"CONSISTENT\"",
+    "lines": [
+      138
+    ]
+  },
+  {
+    "file": "scripts/audit_hallucination_l1_l3.py",
+    "pattern": "q.id.startswith",
+    "lines": [
+      225
+    ]
+  },
+  {
+    "file": "scripts/audit_online_baseline.py",
+    "pattern": "# In live mode",
+    "lines": [
+      69
+    ]
+  },
+  {
+    "file": "frontend/index.html",
+    "pattern": "https://fastly.jsdelivr.net/",
+    "lines": [
+      39
+    ]
+  }
+]

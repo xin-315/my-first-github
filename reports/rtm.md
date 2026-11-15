@@ -1,3 +1,5 @@
+> **Cycle 4 review update (9 November 2026):** See [the current review](final_report/ch03_xie_weixin/cycle4/traceability_update.md). Earlier claims below are retained for traceability and are not current acceptance sign-off.
+
 # StudyGraph — Combined Requirements Traceability Matrix (M2.1)
 
 **Course:** JC2001 / Group 5  

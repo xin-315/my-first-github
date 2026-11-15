@@ -1,8 +1,10 @@
+> **Cycle 4 claims review (9 November 2026):** See [the current review](cycle4/review_log.md). Earlier claims below are retained for traceability and are not current acceptance sign-off.
+
 # 3 Use Cases and Requirements Modelling
 
 ## 3.1 Actor Identification and System Boundary
 
-Following **Sommerville (2016), *Software Engineering* (10th ed., Chapter 5: System Modeling)** and the **UML 2.5 Use Case Specification** taught in Week 5 (`Lecture 6: System Modeling` and `Week 5 Use Case Lab`), we establish a formal behavioural model bridging the functional requirements in Chapter 2 (`R01`–`R10`) to the architectural components in Chapter 4.
+Following **Sommerville (2016), *Software Engineering* (10th ed., Chapter 5: System Modeling)** and the **UML 2.5 Use Case Specification**, we establish a formal behavioural model bridging the functional requirements in Chapter 2 (`R01`–`R10`) to the architectural components in Chapter 4.
 
 A use case diagram defines a clear **System Boundary** (`StudyGraph / SmartStudy Assistant Single-Process Runtime`) separating internal software responsibilities from external entities (**Actors**). We identify two primary human actors, one secondary system/pipeline actor, and one explicitly excluded non-target actor:
 
@@ -16,11 +18,11 @@ A use case diagram defines a clear **System Boundary** (`StudyGraph / SmartStudy
 Figure 3.1 presents the UML 2.5 Use Case Diagram for StudyGraph, illustrating the system boundary, actors, six core use cases (`UC-01` to `UC-06`), and formal `«include»` and `«extend»` dependencies.
 
 **Figure 3.1: UML 2.5 Use Case Diagram for the StudyGraph (SmartStudy) proof-of-concept system.**
-(Source: Compiled from `specs/003-cycle3-startup-report/spec.md` and Week 5 UML modelling guidelines.)
+(Source: Compiled from `specs/003-cycle3-startup-report/spec.md` and UML modelling guidelines.)
 
 ![Figure 3.1](figures/fig_use_case_diagram.svg)
 
-### Formal Semantics of `«include»` vs. `«extend»` (Week 5 Lab Alignment)
+### Formal Semantics of `«include»` vs. `«extend»`
 
 A frequent modelling error in undergraduate software engineering reports is reversing the arrow direction or conflating `«include»` with `«extend»`. In Figure 3.1, we enforce strict UML 2.5 semantics:
 
@@ -121,7 +123,7 @@ To ensure every use case is directly implementable and testable, we provide stru
 
 ## 3.4 Behavioural State Machine: Question Diagnostic Lifecycle
 
-While use cases capture actor-system interactions, a **UML State Machine Diagram** (taught in Week 5 `Lecture 6: System Modeling`) models how an individual question attempt transitions across internal states in response to user events and guard conditions. Figure 3.2 depicts the state machine governing the frontend and backend diagnostic lifecycle (`frontend/app.js` and `backend/app/services/diagnostic_service.py`).
+While use cases capture actor-system interactions, a **UML State Machine Diagram** models how an individual question attempt transitions across internal states in response to user events and guard conditions. Figure 3.2 depicts the state machine governing the frontend and backend diagnostic lifecycle (`frontend/app.js` and `backend/app/services/diagnostic_service.py`).
 
 **Figure 3.2: UML 2.5 Behavioural State Machine for the question attempt and misconception diagnosis lifecycle.**
 (Source: Modelled from `frontend/app.js` state transitions and `POST /api/diagnose` response guards.)
