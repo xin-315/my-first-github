@@ -1,0 +1,1180 @@
+{
+  "run_utc": "2026-11-09T08:09:59.181098+00:00",
+  "source_commit": "5687727e903311a081896208e800e1d0f6c322cf",
+  "python": "3.12.14",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "machine": "x86_64",
+  "packages": {
+    "fastapi": "0.162.2",
+    "starlette": "1.10.0",
+    "pydantic": "2.14.3",
+    "httpx": "0.28.1",
+    "pytest": "9.2.0"
+  },
+  "scope": "In-process local API and parser checks; no browser, live model or physical network isolation.",
+  "bank": {
+    "questions": 17,
+    "subjects": {
+      "cs": 3,
+      "econ": 3,
+      "eng": 1,
+      "law": 3,
+      "mis": 1,
+      "mkt": 1,
+      "or": 1,
+      "prob_stat": 1,
+      "se": 3
+    },
+    "traps": 51
+  },
+  "routes": [
+    {
+      "path": "/api/health",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/health/llm",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/quiz",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/diagnose",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/reports/summary",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/reports/trend",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/auth/demo-users",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/auth/login",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/auth/register",
+      "methods": [
+        "POST"
+      ]
+    }
+  ],
+  "static_root_status": 200,
+  "quiz": {
+    "all_count": 17,
+    "subject_law_count": 3,
+    "category_law_count": 17,
+    "unknown_subject_count": 0,
+    "public_answer_fields": [
+      "answer",
+      "explanation",
+      "traps"
+    ],
+    "public_option_fields": [
+      "isCorrect",
+      "is_correct",
+      "trapId",
+      "trap_id"
+    ]
+  },
+  "option_checks": {
+    "total": 68,
+    "passed": 68,
+    "rows": [
+      {
+        "question_id": "cs_1",
+        "option": "A",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_cs_1",
+        "actual_trap": "trap_cs_1",
+        "passed": true
+      },
+      {
+        "question_id": "cs_1",
+        "option": "B",
+        "status": 200,
+        "expected_correct": true,
+        "actual_correct": true,
+        "expected_trap": null,
+        "actual_trap": null,
+        "passed": true
+      },
+      {
+        "question_id": "cs_1",
+        "option": "C",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_cs_2",
+        "actual_trap": "trap_cs_2",
+        "passed": true
+      },
+      {
+        "question_id": "cs_1",
+        "option": "D",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_cs_3",
+        "actual_trap": "trap_cs_3",
+        "passed": true
+      },
+      {
+        "question_id": "cs_2",
+        "option": "A",
+        "status": 200,
+        "expected_correct": true,
+        "actual_correct": true,
+        "expected_trap": null,
+        "actual_trap": null,
+        "passed": true
+      },
+      {
+        "question_id": "cs_2",
+        "option": "B",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_cs_2_1",
+        "actual_trap": "trap_cs_2_1",
+        "passed": true
+      },
+      {
+        "question_id": "cs_2",
+        "option": "C",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_cs_2_2",
+        "actual_trap": "trap_cs_2_2",
+        "passed": true
+      },
+      {
+        "question_id": "cs_2",
+        "option": "D",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_cs_2_3",
+        "actual_trap": "trap_cs_2_3",
+        "passed": true
+      },
+      {
+        "question_id": "cs_3",
+        "option": "A",
+        "status": 200,
+        "expected_correct": true,
+        "actual_correct": true,
+        "expected_trap": null,
+        "actual_trap": null,
+        "passed": true
+      },
+      {
+        "question_id": "cs_3",
+        "option": "B",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_cs_3_1",
+        "actual_trap": "trap_cs_3_1",
+        "passed": true
+      },
+      {
+        "question_id": "cs_3",
+        "option": "C",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_cs_3_2",
+        "actual_trap": "trap_cs_3_2",
+        "passed": true
+      },
+      {
+        "question_id": "cs_3",
+        "option": "D",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_cs_3_3",
+        "actual_trap": "trap_cs_3_3",
+        "passed": true
+      },
+      {
+        "question_id": "econ_1",
+        "option": "A",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_econ_1",
+        "actual_trap": "trap_econ_1",
+        "passed": true
+      },
+      {
+        "question_id": "econ_1",
+        "option": "B",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_econ_2",
+        "actual_trap": "trap_econ_2",
+        "passed": true
+      },
+      {
+        "question_id": "econ_1",
+        "option": "C",
+        "status": 200,
+        "expected_correct": true,
+        "actual_correct": true,
+        "expected_trap": null,
+        "actual_trap": null,
+        "passed": true
+      },
+      {
+        "question_id": "econ_1",
+        "option": "D",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_econ_3",
+        "actual_trap": "trap_econ_3",
+        "passed": true
+      },
+      {
+        "question_id": "econ_2",
+        "option": "A",
+        "status": 200,
+        "expected_correct": true,
+        "actual_correct": true,
+        "expected_trap": null,
+        "actual_trap": null,
+        "passed": true
+      },
+      {
+        "question_id": "econ_2",
+        "option": "B",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_econ_2_1",
+        "actual_trap": "trap_econ_2_1",
+        "passed": true
+      },
+      {
+        "question_id": "econ_2",
+        "option": "C",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_econ_2_2",
+        "actual_trap": "trap_econ_2_2",
+        "passed": true
+      },
+      {
+        "question_id": "econ_2",
+        "option": "D",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_econ_2_3",
+        "actual_trap": "trap_econ_2_3",
+        "passed": true
+      },
+      {
+        "question_id": "econ_3",
+        "option": "A",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_econ_3_1",
+        "actual_trap": "trap_econ_3_1",
+        "passed": true
+      },
+      {
+        "question_id": "econ_3",
+        "option": "B",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_econ_3_2",
+        "actual_trap": "trap_econ_3_2",
+        "passed": true
+      },
+      {
+        "question_id": "econ_3",
+        "option": "C",
+        "status": 200,
+        "expected_correct": true,
+        "actual_correct": true,
+        "expected_trap": null,
+        "actual_trap": null,
+        "passed": true
+      },
+      {
+        "question_id": "econ_3",
+        "option": "D",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_econ_3_3",
+        "actual_trap": "trap_econ_3_3",
+        "passed": true
+      },
+      {
+        "question_id": "eng_1",
+        "option": "A",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_eng_1",
+        "actual_trap": "trap_eng_1",
+        "passed": true
+      },
+      {
+        "question_id": "eng_1",
+        "option": "B",
+        "status": 200,
+        "expected_correct": true,
+        "actual_correct": true,
+        "expected_trap": null,
+        "actual_trap": null,
+        "passed": true
+      },
+      {
+        "question_id": "eng_1",
+        "option": "C",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_eng_2",
+        "actual_trap": "trap_eng_2",
+        "passed": true
+      },
+      {
+        "question_id": "eng_1",
+        "option": "D",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_eng_3",
+        "actual_trap": "trap_eng_3",
+        "passed": true
+      },
+      {
+        "question_id": "law_1",
+        "option": "A",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_law_1",
+        "actual_trap": "trap_law_1",
+        "passed": true
+      },
+      {
+        "question_id": "law_1",
+        "option": "B",
+        "status": 200,
+        "expected_correct": true,
+        "actual_correct": true,
+        "expected_trap": null,
+        "actual_trap": null,
+        "passed": true
+      },
+      {
+        "question_id": "law_1",
+        "option": "C",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_law_2",
+        "actual_trap": "trap_law_2",
+        "passed": true
+      },
+      {
+        "question_id": "law_1",
+        "option": "D",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_law_3",
+        "actual_trap": "trap_law_3",
+        "passed": true
+      },
+      {
+        "question_id": "law_2",
+        "option": "A",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_law_2_1",
+        "actual_trap": "trap_law_2_1",
+        "passed": true
+      },
+      {
+        "question_id": "law_2",
+        "option": "B",
+        "status": 200,
+        "expected_correct": true,
+        "actual_correct": true,
+        "expected_trap": null,
+        "actual_trap": null,
+        "passed": true
+      },
+      {
+        "question_id": "law_2",
+        "option": "C",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_law_2_2",
+        "actual_trap": "trap_law_2_2",
+        "passed": true
+      },
+      {
+        "question_id": "law_2",
+        "option": "D",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_law_2_3",
+        "actual_trap": "trap_law_2_3",
+        "passed": true
+      },
+      {
+        "question_id": "law_3",
+        "option": "A",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_law_3_1",
+        "actual_trap": "trap_law_3_1",
+        "passed": true
+      },
+      {
+        "question_id": "law_3",
+        "option": "B",
+        "status": 200,
+        "expected_correct": true,
+        "actual_correct": true,
+        "expected_trap": null,
+        "actual_trap": null,
+        "passed": true
+      },
+      {
+        "question_id": "law_3",
+        "option": "C",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_law_3_2",
+        "actual_trap": "trap_law_3_2",
+        "passed": true
+      },
+      {
+        "question_id": "law_3",
+        "option": "D",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_law_3_3",
+        "actual_trap": "trap_law_3_3",
+        "passed": true
+      },
+      {
+        "question_id": "mis_1",
+        "option": "A",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_mis_1",
+        "actual_trap": "trap_mis_1",
+        "passed": true
+      },
+      {
+        "question_id": "mis_1",
+        "option": "B",
+        "status": 200,
+        "expected_correct": true,
+        "actual_correct": true,
+        "expected_trap": null,
+        "actual_trap": null,
+        "passed": true
+      },
+      {
+        "question_id": "mis_1",
+        "option": "C",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_mis_2",
+        "actual_trap": "trap_mis_2",
+        "passed": true
+      },
+      {
+        "question_id": "mis_1",
+        "option": "D",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_mis_3",
+        "actual_trap": "trap_mis_3",
+        "passed": true
+      },
+      {
+        "question_id": "mkt_1",
+        "option": "A",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_mkt_1",
+        "actual_trap": "trap_mkt_1",
+        "passed": true
+      },
+      {
+        "question_id": "mkt_1",
+        "option": "B",
+        "status": 200,
+        "expected_correct": true,
+        "actual_correct": true,
+        "expected_trap": null,
+        "actual_trap": null,
+        "passed": true
+      },
+      {
+        "question_id": "mkt_1",
+        "option": "C",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_mkt_2",
+        "actual_trap": "trap_mkt_2",
+        "passed": true
+      },
+      {
+        "question_id": "mkt_1",
+        "option": "D",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_mkt_3",
+        "actual_trap": "trap_mkt_3",
+        "passed": true
+      },
+      {
+        "question_id": "or_1",
+        "option": "A",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_or_1",
+        "actual_trap": "trap_or_1",
+        "passed": true
+      },
+      {
+        "question_id": "or_1",
+        "option": "B",
+        "status": 200,
+        "expected_correct": true,
+        "actual_correct": true,
+        "expected_trap": null,
+        "actual_trap": null,
+        "passed": true
+      },
+      {
+        "question_id": "or_1",
+        "option": "C",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_or_2",
+        "actual_trap": "trap_or_2",
+        "passed": true
+      },
+      {
+        "question_id": "or_1",
+        "option": "D",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_or_3",
+        "actual_trap": "trap_or_3",
+        "passed": true
+      },
+      {
+        "question_id": "prob_stat_1",
+        "option": "A",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_stat_1",
+        "actual_trap": "trap_stat_1",
+        "passed": true
+      },
+      {
+        "question_id": "prob_stat_1",
+        "option": "B",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_stat_2",
+        "actual_trap": "trap_stat_2",
+        "passed": true
+      },
+      {
+        "question_id": "prob_stat_1",
+        "option": "C",
+        "status": 200,
+        "expected_correct": true,
+        "actual_correct": true,
+        "expected_trap": null,
+        "actual_trap": null,
+        "passed": true
+      },
+      {
+        "question_id": "prob_stat_1",
+        "option": "D",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_stat_3",
+        "actual_trap": "trap_stat_3",
+        "passed": true
+      },
+      {
+        "question_id": "se_1",
+        "option": "A",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_se_1_1",
+        "actual_trap": "trap_se_1_1",
+        "passed": true
+      },
+      {
+        "question_id": "se_1",
+        "option": "B",
+        "status": 200,
+        "expected_correct": true,
+        "actual_correct": true,
+        "expected_trap": null,
+        "actual_trap": null,
+        "passed": true
+      },
+      {
+        "question_id": "se_1",
+        "option": "C",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_se_1_2",
+        "actual_trap": "trap_se_1_2",
+        "passed": true
+      },
+      {
+        "question_id": "se_1",
+        "option": "D",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_se_1_3",
+        "actual_trap": "trap_se_1_3",
+        "passed": true
+      },
+      {
+        "question_id": "se_2",
+        "option": "A",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_se_2_1",
+        "actual_trap": "trap_se_2_1",
+        "passed": true
+      },
+      {
+        "question_id": "se_2",
+        "option": "B",
+        "status": 200,
+        "expected_correct": true,
+        "actual_correct": true,
+        "expected_trap": null,
+        "actual_trap": null,
+        "passed": true
+      },
+      {
+        "question_id": "se_2",
+        "option": "C",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_se_2_2",
+        "actual_trap": "trap_se_2_2",
+        "passed": true
+      },
+      {
+        "question_id": "se_2",
+        "option": "D",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_se_2_3",
+        "actual_trap": "trap_se_2_3",
+        "passed": true
+      },
+      {
+        "question_id": "se_3",
+        "option": "A",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_se_3_1",
+        "actual_trap": "trap_se_3_1",
+        "passed": true
+      },
+      {
+        "question_id": "se_3",
+        "option": "B",
+        "status": 200,
+        "expected_correct": true,
+        "actual_correct": true,
+        "expected_trap": null,
+        "actual_trap": null,
+        "passed": true
+      },
+      {
+        "question_id": "se_3",
+        "option": "C",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_se_3_2",
+        "actual_trap": "trap_se_3_2",
+        "passed": true
+      },
+      {
+        "question_id": "se_3",
+        "option": "D",
+        "status": 200,
+        "expected_correct": false,
+        "actual_correct": false,
+        "expected_trap": "trap_se_3_3",
+        "actual_trap": "trap_se_3_3",
+        "passed": true
+      }
+    ]
+  },
+  "boundary_checks": [
+    {
+      "case": "unknown_question",
+      "input": {
+        "question_id": "review-missing",
+        "selected_option": "A"
+      },
+      "status": 200,
+      "selected_key": "A",
+      "trap_id": "trap_fallback",
+      "correct_key": "B",
+      "model_used": "local-safe-fallback"
+    },
+    {
+      "case": "unknown_option",
+      "input": {
+        "question_id": "law_1",
+        "selected_option": "E"
+      },
+      "status": 200,
+      "selected_key": "E",
+      "trap_id": "trap_law_1",
+      "correct_key": "B",
+      "model_used": "local-knowledge-seed"
+    },
+    {
+      "case": "empty_object",
+      "input": {},
+      "status": 200,
+      "selected_key": "A",
+      "trap_id": "trap_fallback",
+      "correct_key": "B",
+      "model_used": "local-safe-fallback"
+    },
+    {
+      "case": "lowercase_option",
+      "input": {
+        "question_id": "law_1",
+        "selected_option": "a"
+      },
+      "status": 200,
+      "selected_key": "A",
+      "trap_id": "trap_law_1",
+      "correct_key": "B",
+      "model_used": "local-knowledge-seed"
+    }
+  ],
+  "telemetry": {
+    "before": {
+      "subject": "all",
+      "attempt_count": 18,
+      "attemptCount": 18,
+      "correct_count": 14,
+      "correctCount": 14,
+      "accuracy_rate": 77.8,
+      "accuracyRate": 77.8,
+      "diagnostic_count": 4,
+      "diagnosticCount": 4,
+      "traps_identified": 9,
+      "trapsIdentified": 9,
+      "cognitive_score": 86.5,
+      "cognitiveScore": 86.5,
+      "streak_days": 5,
+      "streakDays": 5,
+      "data_source": "session_telemetry",
+      "dataSource": "session_telemetry",
+      "weak_points": [
+        {
+          "topic": "民法典第 152 条 · 撤销权除斥期间",
+          "trap_name": "除斥期间混淆消灭时效中断陷阱",
+          "trapName": "除斥期间混淆消灭时效中断陷阱",
+          "fail_count": 3,
+          "failCount": 3,
+          "severity": "high",
+          "recommendation": "深入梳理除斥期间的不变期间属性，注意法院可依职权主动审查除斥期间届满。"
+        },
+        {
+          "topic": "物权变动 · 善意取得构成要件",
+          "trap_name": "占有委托物与占有脱离物认定偏差",
+          "trapName": "占有委托物与占有脱离物认定偏差",
+          "fail_count": 2,
+          "failCount": 2,
+          "severity": "medium",
+          "recommendation": "区分遗失物与基于租赁委托交付之物的法律救济途径差异。"
+        },
+        {
+          "topic": "内生性问题 · 遗漏变量偏差 (OVB)",
+          "trap_name": "遗漏变量偏差与多重共线性概念混淆",
+          "trapName": "遗漏变量偏差与多重共线性概念混淆",
+          "fail_count": 3,
+          "failCount": 3,
+          "severity": "high",
+          "recommendation": "复习 OLS 假设，识别控制变量与工具变量引入时的外生性假定条件。"
+        },
+        {
+          "topic": "需求价格弹性与总收益",
+          "trap_name": "弹性绝对值与降价收益反向判断陷阱",
+          "trapName": "弹性绝对值与降价收益反向判断陷阱",
+          "fail_count": 2,
+          "failCount": 2,
+          "severity": "medium",
+          "recommendation": "掌握边际收益与弹性公式关系：MR = P(1 - 1/|Ed|)。"
+        }
+      ],
+      "weakPoints": [
+        {
+          "topic": "民法典第 152 条 · 撤销权除斥期间",
+          "trap_name": "除斥期间混淆消灭时效中断陷阱",
+          "trapName": "除斥期间混淆消灭时效中断陷阱",
+          "fail_count": 3,
+          "failCount": 3,
+          "severity": "high",
+          "recommendation": "深入梳理除斥期间的不变期间属性，注意法院可依职权主动审查除斥期间届满。"
+        },
+        {
+          "topic": "物权变动 · 善意取得构成要件",
+          "trap_name": "占有委托物与占有脱离物认定偏差",
+          "trapName": "占有委托物与占有脱离物认定偏差",
+          "fail_count": 2,
+          "failCount": 2,
+          "severity": "medium",
+          "recommendation": "区分遗失物与基于租赁委托交付之物的法律救济途径差异。"
+        },
+        {
+          "topic": "内生性问题 · 遗漏变量偏差 (OVB)",
+          "trap_name": "遗漏变量偏差与多重共线性概念混淆",
+          "trapName": "遗漏变量偏差与多重共线性概念混淆",
+          "fail_count": 3,
+          "failCount": 3,
+          "severity": "high",
+          "recommendation": "复习 OLS 假设，识别控制变量与工具变量引入时的外生性假定条件。"
+        },
+        {
+          "topic": "需求价格弹性与总收益",
+          "trap_name": "弹性绝对值与降价收益反向判断陷阱",
+          "trapName": "弹性绝对值与降价收益反向判断陷阱",
+          "fail_count": 2,
+          "failCount": 2,
+          "severity": "medium",
+          "recommendation": "掌握边际收益与弹性公式关系：MR = P(1 - 1/|Ed|)。"
+        }
+      ]
+    },
+    "after": {
+      "subject": "all",
+      "attempt_count": 18,
+      "attemptCount": 18,
+      "correct_count": 14,
+      "correctCount": 14,
+      "accuracy_rate": 77.8,
+      "accuracyRate": 77.8,
+      "diagnostic_count": 4,
+      "diagnosticCount": 4,
+      "traps_identified": 9,
+      "trapsIdentified": 9,
+      "cognitive_score": 86.5,
+      "cognitiveScore": 86.5,
+      "streak_days": 5,
+      "streakDays": 5,
+      "data_source": "session_telemetry",
+      "dataSource": "session_telemetry",
+      "weak_points": [
+        {
+          "topic": "民法典第 152 条 · 撤销权除斥期间",
+          "trap_name": "除斥期间混淆消灭时效中断陷阱",
+          "trapName": "除斥期间混淆消灭时效中断陷阱",
+          "fail_count": 3,
+          "failCount": 3,
+          "severity": "high",
+          "recommendation": "深入梳理除斥期间的不变期间属性，注意法院可依职权主动审查除斥期间届满。"
+        },
+        {
+          "topic": "物权变动 · 善意取得构成要件",
+          "trap_name": "占有委托物与占有脱离物认定偏差",
+          "trapName": "占有委托物与占有脱离物认定偏差",
+          "fail_count": 2,
+          "failCount": 2,
+          "severity": "medium",
+          "recommendation": "区分遗失物与基于租赁委托交付之物的法律救济途径差异。"
+        },
+        {
+          "topic": "内生性问题 · 遗漏变量偏差 (OVB)",
+          "trap_name": "遗漏变量偏差与多重共线性概念混淆",
+          "trapName": "遗漏变量偏差与多重共线性概念混淆",
+          "fail_count": 3,
+          "failCount": 3,
+          "severity": "high",
+          "recommendation": "复习 OLS 假设，识别控制变量与工具变量引入时的外生性假定条件。"
+        },
+        {
+          "topic": "需求价格弹性与总收益",
+          "trap_name": "弹性绝对值与降价收益反向判断陷阱",
+          "trapName": "弹性绝对值与降价收益反向判断陷阱",
+          "fail_count": 2,
+          "failCount": 2,
+          "severity": "medium",
+          "recommendation": "掌握边际收益与弹性公式关系：MR = P(1 - 1/|Ed|)。"
+        }
+      ],
+      "weakPoints": [
+        {
+          "topic": "民法典第 152 条 · 撤销权除斥期间",
+          "trap_name": "除斥期间混淆消灭时效中断陷阱",
+          "trapName": "除斥期间混淆消灭时效中断陷阱",
+          "fail_count": 3,
+          "failCount": 3,
+          "severity": "high",
+          "recommendation": "深入梳理除斥期间的不变期间属性，注意法院可依职权主动审查除斥期间届满。"
+        },
+        {
+          "topic": "物权变动 · 善意取得构成要件",
+          "trap_name": "占有委托物与占有脱离物认定偏差",
+          "trapName": "占有委托物与占有脱离物认定偏差",
+          "fail_count": 2,
+          "failCount": 2,
+          "severity": "medium",
+          "recommendation": "区分遗失物与基于租赁委托交付之物的法律救济途径差异。"
+        },
+        {
+          "topic": "内生性问题 · 遗漏变量偏差 (OVB)",
+          "trap_name": "遗漏变量偏差与多重共线性概念混淆",
+          "trapName": "遗漏变量偏差与多重共线性概念混淆",
+          "fail_count": 3,
+          "failCount": 3,
+          "severity": "high",
+          "recommendation": "复习 OLS 假设，识别控制变量与工具变量引入时的外生性假定条件。"
+        },
+        {
+          "topic": "需求价格弹性与总收益",
+          "trap_name": "弹性绝对值与降价收益反向判断陷阱",
+          "trapName": "弹性绝对值与降价收益反向判断陷阱",
+          "fail_count": 2,
+          "failCount": 2,
+          "severity": "medium",
+          "recommendation": "掌握边际收益与弹性公式关系：MR = P(1 - 1/|Ed|)。"
+        }
+      ]
+    },
+    "unchanged_after_three_attempts": true,
+    "reset_status": 405
+  },
+  "timing": {
+    "method": "TestClient in-process round trip; 10 warmups, 100 serial law_1:A calls; no LLM",
+    "median_ms": 1.5564555,
+    "p95_ms": 2.020986,
+    "raw_ms": [
+      1.495463,
+      1.741953,
+      1.471683,
+      1.785509,
+      2.110389,
+      1.518482,
+      1.481174,
+      4.299733,
+      1.581481,
+      1.691296,
+      1.579225,
+      1.565009,
+      1.518943,
+      1.389556,
+      1.515762,
+      1.631747,
+      1.631916,
+      1.602865,
+      1.701569,
+      1.471341,
+      1.861941,
+      1.895749,
+      1.615391,
+      1.615316,
+      1.497205,
+      1.734222,
+      1.871593,
+      1.799429,
+      2.362336,
+      1.81286,
+      1.659793,
+      1.703864,
+      1.852717,
+      1.425979,
+      1.672551,
+      1.708913,
+      1.41976,
+      1.34787,
+      1.391025,
+      1.479289,
+      1.593387,
+      1.553833,
+      1.52983,
+      1.423878,
+      1.414495,
+      1.657234,
+      2.213027,
+      1.653922,
+      1.535785,
+      1.365228,
+      1.470779,
+      1.559078,
+      1.518727,
+      1.470854,
+      1.419088,
+      1.77364,
+      1.601006,
+      1.920895,
+      2.232829,
+      1.790991,
+      1.406091,
+      1.429641,
+      1.986323,
+      1.41627,
+      1.711362,
+      1.689427,
+      1.568674,
+      1.92418,
+      1.412878,
+      1.448558,
+      1.665459,
+      1.847247,
+      1.495708,
+      1.387174,
+      1.344369,
+      1.289761,
+      1.90211,
+      1.490115,
+      1.399678,
+      1.428757,
+      1.548459,
+      1.47013,
+      1.715364,
+      1.738616,
+      1.364064,
+      1.474655,
+      1.5253,
+      1.494199,
+      1.587158,
+      1.441884,
+      1.652615,
+      1.543718,
+      1.361856,
+      1.434298,
+      2.020986,
+      1.749245,
+      1.422627,
+      1.516407,
+      1.553748,
+      1.483653
+    ],
+    "limit": "Not TCP latency, server startup time, load capacity or a general performance guarantee."
+  },
+  "optional_llm_path": {
+    "mock_call_count": 1,
+    "http_status": 200,
+    "fallback_mode": false,
+    "live_network_used": false
+  },
+  "parser": {
+    "valid_pack.json": {
+      "ok": true,
+      "accepted_questions": 2,
+      "errors": 0,
+      "warnings": 0,
+      "codes": [],
+      "cli_exit": 0,
+      "sha256": "553197afa12c4035ae02aa35133565201695b44a58a5c1069e9ae0edf57e3a7b"
+    },
+    "invalid_pack.json": {
+      "ok": false,
+      "accepted_questions": 0,
+      "errors": 12,
+      "warnings": 1,
+      "codes": [
+        "dangling_trap_id",
+        "missing_explanation",
+        "missing_field",
+        "missing_trap_id",
+        "option_count",
+        "option_keys_invalid",
+        "orphan_trap",
+        "unknown_radar_dimension",
+        "unknown_subject"
+      ],
+      "cli_exit": 1,
+      "sha256": "fcb561dc74a0b9159cdcdcd567342cacbdd17a4a0629a03d90aeadb8536b6796"
+    }
+  },
+  "audit_method": {
+    "fixed_true_verdict_literal": true,
+    "fixed_consistent_verdict_literal": true,
+    "interpretation": "Generated human-verdict columns do not establish independent human review."
+  }
+}

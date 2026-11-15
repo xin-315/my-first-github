@@ -1,6 +1,8 @@
+> **Cycle 4 executed evidence (9 November 2026):** See [the current review](cycle4/traceability_update.md). Earlier claims below are retained for traceability and are not current acceptance sign-off.
+
 # Appendix B Requirements Traceability Matrix
 
-This matrix links requirements to use cases, implementation locations and verification evidence. Implementation findings are based on source inspection. API, browser and performance acceptance tests have not been executed.
+This is the earlier source-inspection matrix, retained as a historical record. Statements such as "not executed" below describe that earlier inspection and are superseded, where applicable, by the executed checks in [the Cycle 4 traceability update](cycle4/traceability_update.md). Browser acceptance and full performance targets remain unverified. The [15 November checkpoint](cycle4/checkpoint_2026-11-15.md) links the latest rerun evidence.
 
 | Requirement ID and description | Use case | Implementation evidence | Verification evidence | Status and gap |
 | --- | --- | --- | --- | --- |

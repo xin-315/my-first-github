@@ -1,3 +1,5 @@
+> **Cycle 4 numbering warning (9 November 2026):** See [the current review](cycle4/traceability_update.md#r01-r14-alignment-warning). Earlier claims below are retained for traceability and are not current acceptance sign-off.
+
 # Provisional requirement crosswalk
 
 Candidate semantic matches only; not a team-approved renumbering.

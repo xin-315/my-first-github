@@ -1,0 +1,57 @@
+/workspace/scratch/0c2abd159566/review-venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+{
+  "options": 68,
+  "passed": 68,
+  "bank": {
+    "questions": 17,
+    "subjects": {
+      "cs": 3,
+      "econ": 3,
+      "eng": 1,
+      "law": 3,
+      "mis": 1,
+      "mkt": 1,
+      "or": 1,
+      "prob_stat": 1,
+      "se": 3
+    },
+    "traps": 51
+  },
+  "parser": {
+    "valid_pack.json": {
+      "ok": true,
+      "accepted_questions": 2,
+      "errors": 0,
+      "warnings": 0,
+      "codes": [],
+      "cli_exit": 0,
+      "sha256": "553197afa12c4035ae02aa35133565201695b44a58a5c1069e9ae0edf57e3a7b"
+    },
+    "invalid_pack.json": {
+      "ok": false,
+      "accepted_questions": 0,
+      "errors": 12,
+      "warnings": 1,
+      "codes": [
+        "dangling_trap_id",
+        "missing_explanation",
+        "missing_field",
+        "missing_trap_id",
+        "option_count",
+        "option_keys_invalid",
+        "orphan_trap",
+        "unknown_radar_dimension",
+        "unknown_subject"
+      ],
+      "cli_exit": 1,
+      "sha256": "fcb561dc74a0b9159cdcdcd567342cacbdd17a4a0629a03d90aeadb8536b6796"
+    }
+  },
+  "timing": {
+    "method": "TestClient in-process round trip; 10 warmups, 100 serial law_1:A calls; no LLM",
+    "median_ms": 1.5564555,
+    "p95_ms": 2.020986,
+    "limit": "Not TCP latency, server startup time, load capacity or a general performance guarantee."
+  }
+}
