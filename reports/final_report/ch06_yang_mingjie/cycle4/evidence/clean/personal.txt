@@ -1,0 +1,7 @@
+..........................xxxx                                           [100%]
+=========================== short test summary info ===========================
+XFAIL tests/test_cycle4_integration.py::test_invalid_utf8_returns_a_parse_issue - C4-01: invalid UTF-8 escapes the file API
+XFAIL tests/test_cycle4_integration.py::test_cli_invalid_utf8_has_documented_exit - C4-01: CLI returns 2, documented decode error exit is 1
+XFAIL tests/test_cycle4_integration.py::test_seed_export_preserves_optional_content[graph] - C4-02: export omits optional graph and Socratic guidance
+XFAIL tests/test_cycle4_integration.py::test_seed_export_preserves_optional_content[socratic_prompt] - C4-02: export omits optional graph and Socratic guidance
+26 passed, 4 xfailed, 17 warnings in 3.89s

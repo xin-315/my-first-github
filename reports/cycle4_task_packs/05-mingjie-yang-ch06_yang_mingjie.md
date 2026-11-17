@@ -4,7 +4,8 @@
 **Owner:** Mingjie Yang (50106061)
 **Personal folder:** `reports/final_report/ch06_yang_mingjie/`
 **Source of truth:** [`reports/cycle4_task_assignment_2026-11-03.md`](../cycle4_task_assignment_2026-11-03.md)
-**Status:** `NOT STARTED` (update to `IN PROGRESS`, `UNDERSTOOD` or `NEEDS REVIEW` as work proceeds)
+**Status:** `IN PROGRESS` - technical evidence prepared; owner explanation and demonstration pending.
+**Understanding status:** `NEEDS REVIEW` - independent owner explanation has not yet been assessed.
 
 This pack is a per-member extract of the single Cycle 4 assignment table. It does not replace the master document; if the two disagree, the master document wins.
 
@@ -52,7 +53,7 @@ Record one of:
 
 | Date | Change / evidence | Artefact or PR | Status |
 |---|---|---|---|
-| - | - | - | `NOT STARTED` |
+| 2026-11-15 | Prepared 30 additional backend/integration cases using shipped samples and seed data: 26 passed, 4 strict expected failures. Reproduced the full suite from a second clean source checkout: 258 passed, 4 expected failures. Owner explanation and demonstration pending; PR not yet submitted. | [Cycle 4 evidence and limits](../final_report/ch06_yang_mingjie/cycle4/README.md), [contribution record](../final_report/ch06_yang_mingjie/cycle4/contribution.md) | `IN PROGRESS`; understanding `NEEDS REVIEW` pending owner demonstration |
 
 ## 7. Notes
 
